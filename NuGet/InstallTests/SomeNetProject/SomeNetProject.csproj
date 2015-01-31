@@ -36,6 +36,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CheckContracts">
+      <HintPath>..\packages\CheckContracts.1.2.0.0\lib\portable-net4+sl4+wp7+win8\CheckContracts.dll</HintPath>
+    </Reference>
     <Reference Include="NetRunner.ExternalLibrary">
       <HintPath>..\packages\NetRunner.1.0.9\lib\portable-net4+sl4+wp7+win8\NetRunner.ExternalLibrary.dll</HintPath>
     </Reference>
