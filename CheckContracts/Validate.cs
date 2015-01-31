@@ -11,6 +11,10 @@ namespace CheckContracts
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public static class Validate
     {
+        /// <summary>
+        /// Compares two input integers and raises exception if values are different.
+        /// This checking is useful to check that two collections have the same size.
+        /// </summary>
         [StringFormatMethod("messageFormat")]
         public static void AreEqual(int first, int second, string messageFormat, params object[] args)
         {
@@ -27,6 +31,16 @@ namespace CheckContracts
             Condition(!ReferenceEquals(null, targetObject), messageFormat, args);
         }
 
+        /// <summary>
+        /// Checks that <paramref name="targetObject"/> object is not null. Otherwise raises exception with generic type details (it is better than NullReferenceException without the type details).
+        /// </summary>
+        [ContractAnnotation("targetObject:null => halt")]
+        public static void IsNotNull<TInput>(TInput targetObject)
+            where TInput : class
+        {
+            IsNotNull(targetObject, "The object with type {0} is null", typeof(TInput));
+        }
+
         [StringFormatMethod("messageFormat")]
         public static void CollectionHasElements<TValue>(IEnumerable<TValue> elements, string messageFormat, params object[] args)
         {
@@ -34,6 +48,9 @@ namespace CheckContracts
             Condition(elements.Any(), messageFormat, args);
         }
 
+        /// <summary>
+        /// General conditions to check any. Raises InvalidOperationException in case of false input.
+        /// </summary>
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("condition:false => halt")]
         public static void Condition(bool condition, string messageFormat, params object[] args)
@@ -42,6 +59,9 @@ namespace CheckContracts
                 throw new InvalidOperationException(string.Format(messageFormat, args));
         }
 
+        /// <summary>
+        /// General argument condition to check any. Raises InvalidOperationException in case of false input.
+        /// </summary>
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argumentCondition:false => halt")]
         public static void ArgumentCondition(bool argumentCondition, [InvokerParameterName] string argumentName, string messageFormat, params object[] args)
@@ -65,7 +85,10 @@ namespace CheckContracts
             ArgumentIsNotNull(argument, argumentName);
             ArgumentCondition(!string.IsNullOrWhiteSpace(argument), argumentName, "String argument {0} should not be empty", argumentName);
         }
-        
+
+        /// <summary>
+        /// Check that input value is greater or equal zero. Contract is useful for database objects checking.
+        /// </summary>
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
         public static void ArgumentIntGreaterOrEqualZero(int argument, [InvokerParameterName()] string argumentName)
