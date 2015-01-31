@@ -39,6 +39,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SafeConvert.cs" />
     <Compile Include="Properties\ReSharperAttributes.cs" />
     <Compile Include="Validate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

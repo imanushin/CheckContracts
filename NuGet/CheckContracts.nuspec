@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>CheckContracts</id>
-        <version>1.2.0.0</version>
+        <version>1.3.0.0</version>
         <authors>Igor Manushin</authors>
         <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>
@@ -11,7 +11,7 @@
         <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
         <releaseNotes>Copy Validate static class from NuGet package.</releaseNotes>
         <language>en-US</language>
-        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts</tags>
+        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
         </frameworkAssemblies>
