@@ -9,14 +9,14 @@ namespace CheckContracts
     /// <summary>
     /// Do convertions with detailed exceptions
     /// </summary>
-    public static class SafeConvert
+    public static class SafeCast
     {
         /// <summary>
         /// Cast input value to the target type. It can be useful during implementing <typeparamref name="IValueConverter"/> interface.
         /// Method raises ArgumentNullException in case of null argument.
         /// </summary>
         [ContractAnnotation("input:null => halt")]
-        public static TResult ConvertArgument<TResult>(object input, [InvokerParameterName] string argumentName)
+        public static TResult CastArgument<TResult>(object input, [InvokerParameterName] string argumentName)
             where TResult : class
         {
             Validate.ArgumentIsNotNull(input, argumentName);
@@ -40,7 +40,7 @@ namespace CheckContracts
         /// </summary>
         [ContractAnnotation("input:null => halt")]
         [StringFormatMethod("messageFormat")]
-        public static TResult Convert<TResult>([NotNull] object input, string messageFormat, params object[] arguments)
+        public static TResult Cast<TResult>([NotNull] object input, string messageFormat, params object[] arguments)
             where TResult : class
         {
             Validate.IsNotNull(input, messageFormat, arguments);
