@@ -11,7 +11,7 @@
         <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
         <releaseNotes>Copy Validate static class from NuGet package.</releaseNotes>
         <language>en-US</language>
-        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting</tags>
+        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting, Safe Type Casting, ReSharper, PCL, Portable Class Library, Runtime Checking</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
         </frameworkAssemblies>
