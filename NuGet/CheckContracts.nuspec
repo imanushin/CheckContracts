@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>CheckContracts</id>
-        <version>1.1.0.0</version>
+        <version>1.2.0.0</version>
         <authors>Igor Manushin</authors>
         <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>

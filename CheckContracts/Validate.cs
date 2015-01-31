@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CheckContracts.Properties;
 
-namespace NetRunner.Executable.Common
+namespace CheckContracts
 {
-    internal static class Validate
+    /// <summary>
+    /// General validation class
+    /// </summary>
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
+    public static class Validate
     {
         [StringFormatMethod("messageFormat")]
         public static void AreEqual(int first, int second, string messageFormat, params object[] args)
@@ -15,6 +17,9 @@ namespace NetRunner.Executable.Common
             Condition(first == second, messageFormat, args);
         }
 
+        /// <summary>
+        /// Checks that the target object is not null
+        /// </summary>
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("targetObject:null => halt")]
         public static void IsNotNull(object targetObject, string messageFormat, params object[] args)
@@ -39,7 +44,7 @@ namespace NetRunner.Executable.Common
 
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argumentCondition:false => halt")]
-        public static void ArgumentCondition(bool argumentCondition, [InvokerParameterNameAttribute] string argumentName, string messageFormat, params object[] args)
+        public static void ArgumentCondition(bool argumentCondition, [InvokerParameterName] string argumentName, string messageFormat, params object[] args)
         {
             if (!argumentCondition)
                 throw new ArgumentException(string.Format(messageFormat, args), argumentName);
@@ -47,7 +52,7 @@ namespace NetRunner.Executable.Common
 
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIsNotNull(object argument, [InvokerParameterNameAttribute()] string argumentName)
+        public static void ArgumentIsNotNull(object argument, [InvokerParameterName()] string argumentName)
         {
             if (argument == null)
                 throw new ArgumentNullException(argumentName);
@@ -55,7 +60,7 @@ namespace NetRunner.Executable.Common
 
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentStringIsMeanful(string argument, [InvokerParameterNameAttribute()] string argumentName)
+        public static void ArgumentStringIsMeanful(string argument, [InvokerParameterName()] string argumentName)
         {
             ArgumentIsNotNull(argument, argumentName);
             ArgumentCondition(!string.IsNullOrWhiteSpace(argument), argumentName, "String argument {0} should not be empty", argumentName);
@@ -63,20 +68,20 @@ namespace NetRunner.Executable.Common
         
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIntGreaterOrEqualZero(int argument, [InvokerParameterNameAttribute()] string argumentName)
+        public static void ArgumentIntGreaterOrEqualZero(int argument, [InvokerParameterName()] string argumentName)
         {
             ArgumentCondition(argument >= 0, argumentName, "Argument {0} has value {1} which is less than zero", argumentName, argument);
         }
 
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIntLessThan(int argument, int limitValue, [InvokerParameterNameAttribute()] string argumentName)
+        public static void ArgumentIntLessThan(int argument, int limitValue, [InvokerParameterName()] string argumentName)
         {
             ArgumentCondition(argument < limitValue, argumentName, "Argument {0} should be less than {2}. Current value: {1}", argumentName, argument, limitValue);
         }
 
         [StringFormatMethod("messageFormat")]
-        public static void CollectionArgumentHasElements<TValue>(IEnumerable<TValue> elements, [InvokerParameterNameAttribute] string argumentName)
+        public static void CollectionArgumentHasElements<TValue>(IEnumerable<TValue> elements, [InvokerParameterName] string argumentName)
         {
             ArgumentIsNotNull(elements, argumentName);
             ArgumentCondition(elements.Any(), argumentName, "Collection of type {0}<{1}> does not contain elements", elements.GetType().Name, typeof(TValue));
