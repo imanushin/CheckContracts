@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using JetBrains.Annotations;
 
 namespace CheckContracts
@@ -11,6 +12,24 @@ namespace CheckContracts
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public static partial class Validate
     {
+        private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments)
+        {
+            var builder = new StringBuilder();
+
+            if (!string.IsNullOrWhiteSpace(defaultFormatPerffix))
+            {
+                builder.AppendFormat(defaultFormatPerffix, systemArguments);
+                builder.Append(" ");
+            }
+
+            if (!string.IsNullOrWhiteSpace(userFormat))
+            {
+                builder.AppendFormat(userFormat, userArguments);
+            }
+
+            return builder.ToString();
+        }
+
         /// <summary>
         /// Compares two input integers and raises exception if values are different.
         /// This checking is useful to check that two collections have the same size.
