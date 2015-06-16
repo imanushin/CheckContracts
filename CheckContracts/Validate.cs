@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CheckContracts.Properties;
+using JetBrains.Annotations;
 
 namespace CheckContracts
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CheckContracts.Properties;
+using JetBrains.Annotations;
 
 namespace CheckContracts
 {
