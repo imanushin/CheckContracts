@@ -41,7 +41,8 @@ namespace CheckContracts
         /// <summary>
         /// <#=item.Item7#>
         /// </summary>
-        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, string errorFormat, params object[] args )
+        [StringFormatMethod("errorFormat")]
+        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(<#=item.Item4#>)
             {
@@ -71,7 +72,8 @@ namespace CheckContracts
         /// <summary>
         /// <#=item.Item7#>
         /// </summary>
-        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, string argumentName, string errorFormat, params object[] args)
+        [StringFormatMethod("errorFormat")]
+        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(<#=item.Item4#>)
             {
@@ -86,7 +88,7 @@ namespace CheckContracts
         /// <summary>
         /// <#=item.Item7#>
         /// </summary>
-        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, string argumentName)
+        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, [InvokerParameterName, NotNull] string argumentName)
         {
             if(<#=item.Item4#>)
             {

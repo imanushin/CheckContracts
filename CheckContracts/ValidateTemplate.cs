@@ -14,7 +14,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void GreaterThan(int value, int minValue, string errorFormat, params object[] args )
+        [StringFormatMethod("errorFormat")]
+        public static void GreaterThan(int value, int minValue, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(value > minValue)
             {
@@ -44,7 +45,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(int value, int minValue, string argumentName, string errorFormat, params object[] args)
+        [StringFormatMethod("errorFormat")]
+        public static void ArgumentGreaterThan(int value, int minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(value > minValue)
             {
@@ -59,7 +61,7 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(int value, int minValue, string argumentName)
+        public static void ArgumentGreaterThan(int value, int minValue, [InvokerParameterName, NotNull] string argumentName)
         {
             if(value > minValue)
             {
@@ -74,7 +76,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void GreaterThan(double value, double minValue, string errorFormat, params object[] args )
+        [StringFormatMethod("errorFormat")]
+        public static void GreaterThan(double value, double minValue, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(value > minValue)
             {
@@ -104,7 +107,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(double value, double minValue, string argumentName, string errorFormat, params object[] args)
+        [StringFormatMethod("errorFormat")]
+        public static void ArgumentGreaterThan(double value, double minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(value > minValue)
             {
@@ -119,7 +123,7 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(double value, double minValue, string argumentName)
+        public static void ArgumentGreaterThan(double value, double minValue, [InvokerParameterName, NotNull] string argumentName)
         {
             if(value > minValue)
             {
@@ -134,7 +138,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void GreaterThan(long value, long minValue, string errorFormat, params object[] args )
+        [StringFormatMethod("errorFormat")]
+        public static void GreaterThan(long value, long minValue, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(value > minValue)
             {
@@ -164,7 +169,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(long value, long minValue, string argumentName, string errorFormat, params object[] args)
+        [StringFormatMethod("errorFormat")]
+        public static void ArgumentGreaterThan(long value, long minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(value > minValue)
             {
@@ -179,7 +185,7 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(long value, long minValue, string argumentName)
+        public static void ArgumentGreaterThan(long value, long minValue, [InvokerParameterName, NotNull] string argumentName)
         {
             if(value > minValue)
             {
@@ -194,7 +200,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void GreaterThan(byte value, byte minValue, string errorFormat, params object[] args )
+        [StringFormatMethod("errorFormat")]
+        public static void GreaterThan(byte value, byte minValue, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(value > minValue)
             {
@@ -224,7 +231,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(byte value, byte minValue, string argumentName, string errorFormat, params object[] args)
+        [StringFormatMethod("errorFormat")]
+        public static void ArgumentGreaterThan(byte value, byte minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(value > minValue)
             {
@@ -239,7 +247,7 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(byte value, byte minValue, string argumentName)
+        public static void ArgumentGreaterThan(byte value, byte minValue, [InvokerParameterName, NotNull] string argumentName)
         {
             if(value > minValue)
             {
@@ -254,7 +262,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void GreaterThan(short value, short minValue, string errorFormat, params object[] args )
+        [StringFormatMethod("errorFormat")]
+        public static void GreaterThan(short value, short minValue, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(value > minValue)
             {
@@ -284,7 +293,8 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(short value, short minValue, string argumentName, string errorFormat, params object[] args)
+        [StringFormatMethod("errorFormat")]
+        public static void ArgumentGreaterThan(short value, short minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(value > minValue)
             {
@@ -299,7 +309,7 @@ namespace CheckContracts
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
-        public static void ArgumentGreaterThan(short value, short minValue, string argumentName)
+        public static void ArgumentGreaterThan(short value, short minValue, [InvokerParameterName, NotNull] string argumentName)
         {
             if(value > minValue)
             {
