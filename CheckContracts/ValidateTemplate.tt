@@ -7,21 +7,70 @@
 
 using System;
 using System.Collections.Generic;
+using System.CodeDom.Compiler;
 using System.Linq;
 using JetBrains.Annotations;
 
 <#
+var signedIntegerTypes = new []{ "sbyte", "short", "int", "long" };
+var unsignedIntegerTyper = new []{ "byte", "ushort", "uint", "ulong" };
+var integerTypes = signedIntegerTypes.Concat(unsignedIntegerTyper).ToArray();
+var floatingPointTypes = new[]{"double", "float"};
+var comparableTypes = integerTypes.Concat(floatingPointTypes).Concat(new []{ "DateTime", "TimeSpan" }).ToArray();
+var equalityTypes = comparableTypes.Concat(new[]{ "string" }).ToArray();
+
 var checksArray = new []
 {
     Tuple.Create(
         "GreaterThan",
-        new []{ "int", "double", "long", "byte", "short" },
+        comparableTypes,
         new []{"value", "minValue"},
         "value > minValue",
         "Value of type {0} should be greater than {1}. Current value: {2}",
         "value.GetType(), value, minValue",
         "Checks that input value is greater (and not equal with) minValue"
-        )
+        ),
+
+    Tuple.Create(
+        "GreaterOrEqualThan",
+        comparableTypes,
+        new []{"value", "minValue"},
+        "value >= minValue",
+        "Value of type {0} should be greater or equal than {1}. Current value: {2}",
+        "value.GetType(), value, minValue",
+        "Checks that input value is greater or equal with minValue"
+        ),
+
+    Tuple.Create(
+        "LessThan",
+        comparableTypes,
+        new []{"value", "maxValue"},
+        "value < maxValue",
+        "Value of type {0} should be less than {1}. Current value: {2}",
+        "value.GetType(), value, maxValue",
+        "Checks that input value is less (and not equal with) maxValue"
+        ),
+
+    Tuple.Create(
+        "LessOrEqualThan",
+        comparableTypes,
+        new []{"value", "maxValue"},
+        "value <= maxValue",
+        "Value of type {0} should be less or equal than {1}. Current value: {2}",
+        "value.GetType(), value, maxValue",
+        "Checks that input value is less or equal with maxValue"
+        ),
+
+    Tuple.Create(
+        "Between",
+        comparableTypes,
+        new []{ "value", "minValue", "maxValue" },
+        "minValue <= value && value <= maxValue",
+        "Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}",
+        "value.GetType(), value, minValue, maxValue",
+        "Checks that input value is between minValue and maxValue (inclusive)"
+        ),
+
 };
 
 #>
@@ -42,12 +91,11 @@ namespace CheckContracts
         /// <#=item.Item7#>
         /// </summary>
         [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
         public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [NotNull] string errorFormat, [NotNull] params object[] args )
         {
             if(<#=item.Item4#>)
-            {
                 return;
-            }
 
             var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, errorFormat, args);
 
@@ -57,12 +105,11 @@ namespace CheckContracts
         /// <summary>
         /// <#=item.Item7#>
         /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
         public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>)
         {
             if(<#=item.Item4#>)
-            {
                 return;
-            }
 
             var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, null, null);
 
@@ -73,12 +120,11 @@ namespace CheckContracts
         /// <#=item.Item7#>
         /// </summary>
         [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
         public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
         {
             if(<#=item.Item4#>)
-            {
                 return;
-            }
 
             var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, errorFormat, args, argumentName);
 
@@ -87,13 +133,12 @@ namespace CheckContracts
 
         /// <summary>
         /// <#=item.Item7#>
-        /// </summary>
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
         public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, [InvokerParameterName, NotNull] string argumentName)
         {
             if(<#=item.Item4#>)
-            {
                 return;
-            }
 
             var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, null, null, argumentName);
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
@@ -10,6 +12,7 @@ namespace CheckContracts
     /// General validation class
     /// </summary>
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
+    [DebuggerStepThrough]
     public static partial class Validate
     {
         private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments, string argumentName = null)
