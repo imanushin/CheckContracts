@@ -9,7 +9,7 @@ namespace CheckContracts
     /// General validation class
     /// </summary>
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
-    public static class Validate
+    public static partial class Validate
     {
         /// <summary>
         /// Compares two input integers and raises exception if values are different.
