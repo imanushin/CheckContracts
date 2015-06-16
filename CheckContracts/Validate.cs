@@ -12,9 +12,14 @@ namespace CheckContracts
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public static partial class Validate
     {
-        private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments)
+        private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments, string argumentName = null)
         {
             var builder = new StringBuilder();
+
+            if (!string.IsNullOrWhiteSpace(argumentName))
+            {
+                builder.AppendFormat("Invalid argument {0}", argumentName);
+            }
 
             if (!string.IsNullOrWhiteSpace(defaultFormatPerffix))
             {
