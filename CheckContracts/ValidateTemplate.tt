@@ -28,7 +28,8 @@ var checksArray = new []
         "value > minValue",
         "Value of type {0} should be greater than {1}. Current value: {2}",
         "value.GetType(), value, minValue",
-        "Checks that input value is greater (and not equal with) minValue"
+        "Checks that input value is greater (and not equal with) minValue",
+        ""
         ),
 
     Tuple.Create(
@@ -38,7 +39,8 @@ var checksArray = new []
         "value >= minValue",
         "Value of type {0} should be greater or equal than {1}. Current value: {2}",
         "value.GetType(), value, minValue",
-        "Checks that input value is greater or equal with minValue"
+        "Checks that input value is greater or equal with minValue",
+        ""
         ),
 
     Tuple.Create(
@@ -48,7 +50,8 @@ var checksArray = new []
         "value < maxValue",
         "Value of type {0} should be less than {1}. Current value: {2}",
         "value.GetType(), value, maxValue",
-        "Checks that input value is less (and not equal with) maxValue"
+        "Checks that input value is less (and not equal with) maxValue",
+        ""
         ),
 
     Tuple.Create(
@@ -58,7 +61,8 @@ var checksArray = new []
         "value <= maxValue",
         "Value of type {0} should be less or equal than {1}. Current value: {2}",
         "value.GetType(), value, maxValue",
-        "Checks that input value is less or equal with maxValue"
+        "Checks that input value is less or equal with maxValue",
+        ""
         ),
 
     Tuple.Create(
@@ -68,7 +72,30 @@ var checksArray = new []
         "minValue <= value && value <= maxValue",
         "Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}",
         "value.GetType(), value, minValue, maxValue",
-        "Checks that input value is between minValue and maxValue (inclusive)"
+        "Checks that input value is between minValue and maxValue (inclusive)",
+        ""
+        ),
+
+    Tuple.Create(
+        "EqualsWith<TValue>",
+        new [] {"TValue"},
+        new []{ "value", "expected" },
+        "ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected))",
+        "Value of type {0} should be {1} but was {2}",
+        "typeof(TValue), value, expected",
+        "Checks that value is equals with expected value",
+        ""
+        ),
+
+    Tuple.Create(
+        "CollectionHasElements<TCollection, TValue>",
+        new [] {"TCollection"},
+        new []{ "collection" },
+        "collection.Any()",
+        "Collection with {0} should not be empty",
+        "typeof(TCollection), collection",
+        "Checks that input collection has elements",
+        "where TCollection : IEnumerable<TValue>"
         ),
 
 };
@@ -93,6 +120,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [NotNull] string errorFormat, [NotNull] params object[] args )
+        <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;
@@ -107,6 +135,7 @@ namespace CheckContracts
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>)
+        <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;
@@ -122,6 +151,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
+        <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;
@@ -136,6 +166,7 @@ namespace CheckContracts
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, [InvokerParameterName, NotNull] string argumentName)
+        <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;

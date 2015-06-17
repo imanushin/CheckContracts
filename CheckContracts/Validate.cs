@@ -37,17 +37,7 @@ namespace CheckContracts
 
             return builder.ToString();
         }
-
-        /// <summary>
-        /// Compares two input integers and raises exception if values are different.
-        /// This checking is useful to check that two collections have the same size.
-        /// </summary>
-        [StringFormatMethod("messageFormat")]
-        public static void AreEqual(int first, int second, string messageFormat, params object[] args)
-        {
-            Condition(first == second, messageFormat, args);
-        }
-
+        
         /// <summary>
         /// Checks that the target object is not null
         /// </summary>
