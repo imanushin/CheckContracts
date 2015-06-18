@@ -88,14 +88,14 @@ var checksArray = new []
         ),
 
     Tuple.Create(
-        "CollectionHasElements<TCollection, TValue>",
-        new [] {"TCollection"},
+        "CollectionHasElements<TValue>",
+        new [] {"IEnumerable<TValue>"},
         new []{ "collection" },
-        "collection.Any()",
-        "Collection with {0} should not be empty",
-        "typeof(TCollection), collection",
+        "!ReferenceEquals(null, collection) && collection.Any()",
+        "Collection with elements of type {0} should not be empty. Collection is {1}null",
+        "typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : \"not \"",
         "Checks that input collection has elements",
-        "where TCollection : IEnumerable<TValue>"
+        ""
         ),
 
     Tuple.Create(
@@ -128,7 +128,7 @@ var checksArray = new []
         "Enumeration value {0} is not defined for type {1}",
         "enumeration, typeof(TEnum)",
         "Checks that enumeration value is defined. Uses Enum.IsDefined function",
-        ""
+        "where TEnum : struct, IConvertible"
         ),
 
 };
@@ -152,8 +152,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [NotNull] string errorFormat, [NotNull] params object[] args )
-        <#=item.Rest.Item1#>
+        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [NotNull] string errorFormat, [NotNull] params object[] args ) <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;
@@ -167,8 +166,7 @@ namespace CheckContracts
         /// <#=item.Item7#>
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>)
-        <#=item.Rest.Item1#>
+        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>) <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;
@@ -183,8 +181,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
-        <#=item.Rest.Item1#>
+        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;
@@ -198,8 +195,7 @@ namespace CheckContracts
         /// <#=item.Item7#>
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, [InvokerParameterName, NotNull] string argumentName)
-        <#=item.Rest.Item1#>
+        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, [InvokerParameterName, NotNull] string argumentName) <#=item.Rest.Item1#>
         {
             if(<#=item.Item4#>)
                 return;

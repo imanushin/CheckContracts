@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="SafeCastTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidateTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
