@@ -483,7 +483,7 @@ namespace CheckContracts
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void StringIsMeanful(string inputString, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
-            if(string.IsNullOrWhiteSpace(inputString))
+            if(!string.IsNullOrWhiteSpace(inputString))
                 return;
 
             var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, errorFormat, args);
@@ -497,7 +497,7 @@ namespace CheckContracts
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void StringIsMeanful(string inputString) 
         {
-            if(string.IsNullOrWhiteSpace(inputString))
+            if(!string.IsNullOrWhiteSpace(inputString))
                 return;
 
             var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, null, null);
@@ -512,7 +512,7 @@ namespace CheckContracts
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void ArgumentStringIsMeanful(string inputString, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
-            if(string.IsNullOrWhiteSpace(inputString))
+            if(!string.IsNullOrWhiteSpace(inputString))
                 return;
 
             var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, errorFormat, args, argumentName);
@@ -526,7 +526,7 @@ namespace CheckContracts
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void ArgumentStringIsMeanful(string inputString, [InvokerParameterName, NotNull] string argumentName) 
         {
-            if(string.IsNullOrWhiteSpace(inputString))
+            if(!string.IsNullOrWhiteSpace(inputString))
                 return;
 
             var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, null, null, argumentName);

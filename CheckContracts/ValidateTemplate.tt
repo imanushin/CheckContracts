@@ -113,7 +113,7 @@ var checksArray = new []
         "StringIsMeanful",
         new [] {"string"},
         new []{ "inputString" },
-        "string.IsNullOrWhiteSpace(inputString)",
+        "!string.IsNullOrWhiteSpace(inputString)",
         "Input string is empty: '{0}'",
         "inputString ?? \"{null}\"",
         "Checks that input string is not null, is not empty and is not writespace",
