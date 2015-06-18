@@ -98,6 +98,39 @@ var checksArray = new []
         "where TCollection : IEnumerable<TValue>"
         ),
 
+    Tuple.Create(
+        "Condition",
+        new [] {"bool"},
+        new []{ "condition" },
+        "condition",
+        "Condition was failed",
+        "",
+        "Condition check",
+        ""
+        ),
+
+    Tuple.Create(
+        "StringIsMeanful",
+        new [] {"string"},
+        new []{ "inputString" },
+        "string.IsNullOrWhiteSpace(inputString)",
+        "Input string is empty: '{0}'",
+        "inputString ?? \"{null}\"",
+        "Checks that input string is not null, is not empty and is not writespace",
+        ""
+        ),
+
+    Tuple.Create(
+        "EnumerationValueIsDefined<TEnum>",
+        new [] {"TEnum"},
+        new []{ "enumeration" },
+        "Enum.IsDefined(typeof(TEnum), enumeration)",
+        "Enumeration value {0} is not defined for type {1}",
+        "enumeration, typeof(TEnum)",
+        "Checks that enumeration value is defined. Uses Enum.IsDefined function",
+        ""
+        ),
+
 };
 
 #>

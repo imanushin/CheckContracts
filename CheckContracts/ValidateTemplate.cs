@@ -3855,6 +3855,192 @@ namespace CheckContracts
 
             throw new InvalidOperationException(message);
         }
+        
+        /// <summary>
+        /// Condition check
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void Condition(bool condition, [NotNull] string errorFormat, [NotNull] params object[] args )
+        
+        {
+            if(condition)
+                return;
+
+            var message = BuildMessage("Condition was failed", new object[]{  }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Condition check
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void Condition(bool condition)
+        
+        {
+            if(condition)
+                return;
+
+            var message = BuildMessage("Condition was failed", new object[]{  }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Condition check
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentCondition(bool condition, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
+        
+        {
+            if(condition)
+                return;
+
+            var message = BuildMessage("Condition was failed", new object[]{  }, errorFormat, args, argumentName);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Condition check
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentCondition(bool condition, [InvokerParameterName, NotNull] string argumentName)
+        
+        {
+            if(condition)
+                return;
+
+            var message = BuildMessage("Condition was failed", new object[]{  }, null, null, argumentName);
+
+            throw new InvalidOperationException(message);
+        }
+        
+        /// <summary>
+        /// Checks that input string is not null, is not empty and is not writespace
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void StringIsMeanful(string inputString, [NotNull] string errorFormat, [NotNull] params object[] args )
+        
+        {
+            if(string.IsNullOrWhiteSpace(inputString))
+                return;
+
+            var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input string is not null, is not empty and is not writespace
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void StringIsMeanful(string inputString)
+        
+        {
+            if(string.IsNullOrWhiteSpace(inputString))
+                return;
+
+            var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input string is not null, is not empty and is not writespace
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentStringIsMeanful(string inputString, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
+        
+        {
+            if(string.IsNullOrWhiteSpace(inputString))
+                return;
+
+            var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, errorFormat, args, argumentName);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input string is not null, is not empty and is not writespace
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentStringIsMeanful(string inputString, [InvokerParameterName, NotNull] string argumentName)
+        
+        {
+            if(string.IsNullOrWhiteSpace(inputString))
+                return;
+
+            var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, null, null, argumentName);
+
+            throw new InvalidOperationException(message);
+        }
+        
+        /// <summary>
+        /// Checks that enumeration value is defined. Uses Enum.IsDefined function
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args )
+        
+        {
+            if(Enum.IsDefined(typeof(TEnum), enumeration))
+                return;
+
+            var message = BuildMessage("Enumeration value {0} is not defined for type {1}", new object[]{ enumeration, typeof(TEnum) }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that enumeration value is defined. Uses Enum.IsDefined function
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration)
+        
+        {
+            if(Enum.IsDefined(typeof(TEnum), enumeration))
+                return;
+
+            var message = BuildMessage("Enumeration value {0} is not defined for type {1}", new object[]{ enumeration, typeof(TEnum) }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that enumeration value is defined. Uses Enum.IsDefined function
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args)
+        
+        {
+            if(Enum.IsDefined(typeof(TEnum), enumeration))
+                return;
+
+            var message = BuildMessage("Enumeration value {0} is not defined for type {1}", new object[]{ enumeration, typeof(TEnum) }, errorFormat, args, argumentName);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that enumeration value is defined. Uses Enum.IsDefined function
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName)
+        
+        {
+            if(Enum.IsDefined(typeof(TEnum), enumeration))
+                return;
+
+            var message = BuildMessage("Enumeration value {0} is not defined for type {1}", new object[]{ enumeration, typeof(TEnum) }, null, null, argumentName);
+
+            throw new InvalidOperationException(message);
+        }
                 
     }
 }

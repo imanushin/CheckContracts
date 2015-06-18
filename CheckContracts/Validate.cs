@@ -15,29 +15,6 @@ namespace CheckContracts
     [DebuggerStepThrough]
     public static partial class Validate
     {
-        private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments, string argumentName = null)
-        {
-            var builder = new StringBuilder();
-
-            if (!string.IsNullOrWhiteSpace(argumentName))
-            {
-                builder.AppendFormat("Invalid argument {0}", argumentName);
-            }
-
-            if (!string.IsNullOrWhiteSpace(defaultFormatPerffix))
-            {
-                builder.AppendFormat(defaultFormatPerffix, systemArguments);
-                builder.Append(" ");
-            }
-
-            if (!string.IsNullOrWhiteSpace(userFormat))
-            {
-                builder.AppendFormat(userFormat, userArguments);
-            }
-
-            return builder.ToString();
-        }
-        
         /// <summary>
         /// Checks that the target object is not null
         /// </summary>
@@ -57,89 +34,40 @@ namespace CheckContracts
         {
             IsNotNull(targetObject, "The object with type {0} is null", typeof(TInput));
         }
-
-        [StringFormatMethod("messageFormat")]
-        public static void CollectionHasElements<TValue>(IEnumerable<TValue> elements, string messageFormat, params object[] args)
-        {
-            IsNotNull(elements, messageFormat, args);
-            Condition(elements.Any(), messageFormat, args);
-        }
-
+        
         /// <summary>
-        /// General conditions to check any. Raises InvalidOperationException in case of false input.
+        /// Checks that input argument is not null (for nullable types)
         /// </summary>
-        [StringFormatMethod("messageFormat")]
-        [ContractAnnotation("condition:false => halt")]
-        public static void Condition(bool condition, string messageFormat, params object[] args)
-        {
-            if (!condition)
-                throw new InvalidOperationException(string.Format(messageFormat, args));
-        }
-
-        /// <summary>
-        /// General argument condition to check any. Raises InvalidOperationException in case of false input.
-        /// </summary>
-        [StringFormatMethod("messageFormat")]
-        [ContractAnnotation("argumentCondition:false => halt")]
-        public static void ArgumentCondition(bool argumentCondition, [InvokerParameterName] string argumentName, string messageFormat, params object[] args)
-        {
-            if (!argumentCondition)
-                throw new ArgumentException(string.Format(messageFormat, args), argumentName);
-        }
-
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIsNotNull(object argument, [InvokerParameterName()] string argumentName)
+        public static void ArgumentIsNotNull<TValue>(TValue argument, [InvokerParameterName()] string argumentName)
         {
             if (argument == null)
-                throw new ArgumentNullException(argumentName);
+                throw new ArgumentNullException(argumentName,
+                    $"Argument '{argumentName}' with type {typeof (TValue)} is null");
         }
-
-        [StringFormatMethod("messageFormat")]
-        [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentStringIsMeanful(string argument, [InvokerParameterName()] string argumentName)
+        
+        private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments, string argumentName = null)
         {
-            ArgumentIsNotNull(argument, argumentName);
-            ArgumentCondition(!string.IsNullOrWhiteSpace(argument), argumentName, "String argument {0} should not be empty", argumentName);
-        }
+            var builder = new StringBuilder();
 
-        /// <summary>
-        /// Check that input value is greater or equal zero. Contract is useful for database objects checking.
-        /// </summary>
-        [StringFormatMethod("messageFormat")]
-        [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIntGreaterOrEqualZero(int argument, [InvokerParameterName()] string argumentName)
-        {
-            ArgumentCondition(argument >= 0, argumentName, "Argument {0} has value {1} which is less than zero", argumentName, argument);
-        }
+            if (!string.IsNullOrWhiteSpace(argumentName))
+            {
+                builder.AppendFormat("Invalid argument {0}. ", argumentName);
+            }
 
-        [StringFormatMethod("messageFormat")]
-        [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIntLessThan(int argument, int limitValue, [InvokerParameterName()] string argumentName)
-        {
-            ArgumentCondition(argument < limitValue, argumentName, "Argument {0} should be less than {2}. Current value: {1}", argumentName, argument, limitValue);
-        }
+            if (!string.IsNullOrWhiteSpace(defaultFormatPerffix))
+            {
+                builder.AppendFormat(defaultFormatPerffix, systemArguments);
+                builder.Append(". ");
+            }
 
-        [StringFormatMethod("messageFormat")]
-        public static void CollectionArgumentHasElements<TValue>(IEnumerable<TValue> elements, [InvokerParameterName] string argumentName)
-        {
-            ArgumentIsNotNull(elements, argumentName);
-            ArgumentCondition(elements.Any(), argumentName, "Collection of type {0}<{1}> does not contain elements", elements.GetType().Name, typeof(TValue));
-        }
+            if (!string.IsNullOrWhiteSpace(userFormat))
+            {
+                builder.AppendFormat(userFormat, userArguments);
+            }
 
-        /// <summary>
-        /// Checks if the specified value is defined in enumeration. 
-        /// </summary>
-        /// <typeparam name="T">Argument type.</typeparam>
-        /// <param name="argument">Argument.</param>
-        /// <param name="argumentName">Argument name.</param>
-        public static void ArgumentEnumerationValueIsDefined<T>(T argument, [InvokerParameterName] string argumentName = null)
-            where T : struct, IComparable, IFormattable
-        {
-            Type enumerationType = typeof(T);
-
-            ArgumentCondition(enumerationType.IsEnum, argumentName, "Parameter {0} should be enum", argumentName);
-            ArgumentCondition(Enum.IsDefined(enumerationType, argument), argumentName, "Enumeration {0} does not contain value {1}.", enumerationType.Name, argument);
+            return builder.ToString();
         }
     }
 }
