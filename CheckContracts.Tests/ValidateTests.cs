@@ -87,11 +87,47 @@ namespace CheckContracts.Tests
         private static CheckFunctions<TValue> GetGreaterOrEqualThanChecks<TValue>(TValue comparer) where TValue : struct, IComparable<TValue>
         {
             return new CheckFunctions<TValue>(
-                "CollectionHasElements",
+                "GreaterOrEqualThan",
                 (v) => Validate.GreaterOrEqualThan(v, comparer),
                 (v, msg, args) => Validate.GreaterOrEqualThan(v, comparer, msg, args),
                 (v, param) => Validate.ArgumentGreaterOrEqualThan(v, comparer, param),
                 (v, param, msg, args) => Validate.ArgumentGreaterOrEqualThan(v, comparer, param, msg, args),
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<TValue> GetGreaterThanChecks<TValue>(TValue comparer) where TValue : struct, IComparable<TValue>
+        {
+            return new CheckFunctions<TValue>(
+                "GreaterThan",
+                (v) => Validate.GreaterThan(v, comparer),
+                (v, msg, args) => Validate.GreaterThan(v, comparer, msg, args),
+                (v, param) => Validate.ArgumentGreaterThan(v, comparer, param),
+                (v, param, msg, args) => Validate.ArgumentGreaterThan(v, comparer, param, msg, args),
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<TValue> GetLessOrEqualThanChecks<TValue>(TValue comparer) where TValue : struct, IComparable<TValue>
+        {
+            return new CheckFunctions<TValue>(
+                "LessOrEqualThan",
+                (v) => Validate.LessOrEqualThan(v, comparer),
+                (v, msg, args) => Validate.LessOrEqualThan(v, comparer, msg, args),
+                (v, param) => Validate.ArgumentLessOrEqualThan(v, comparer, param),
+                (v, param, msg, args) => Validate.ArgumentLessOrEqualThan(v, comparer, param, msg, args),
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<TValue> GetLessThanChecks<TValue>(TValue comparer) where TValue : struct, IComparable<TValue>
+        {
+            return new CheckFunctions<TValue>(
+                "LessThan",
+                (v) => Validate.LessThan(v, comparer),
+                (v, msg, args) => Validate.LessThan(v, comparer, msg, args),
+                (v, param) => Validate.ArgumentLessThan(v, comparer, param),
+                (v, param, msg, args) => Validate.ArgumentLessThan(v, comparer, param, msg, args),
                 new[] { typeof(TValue).Name }
                 );
         }
@@ -104,6 +140,9 @@ namespace CheckContracts.Tests
             result.AddRange(CreateCorrectCases(new[] {new [] {string.Empty}}, new []{ new string[0], null}, GetCollectionHasElementsChecks<string>()));
 
             result.AddRange(CreateCorrectCases(new[] {0,1}, new []{ -1 }, GetGreaterOrEqualThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] {1}, new []{ -1, 0 }, GetGreaterThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] {-1, 0}, new []{ 1 }, GetLessOrEqualThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] {-1}, new []{ 1, 0 }, GetLessThanChecks(0)));
 
             return result.ToArray();
         }
