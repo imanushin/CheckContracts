@@ -80,7 +80,19 @@ namespace CheckContracts.Tests
                 Validate.CollectionHasElements,
                 Validate.ArgumentCollectionHasElements,
                 Validate.ArgumentCollectionHasElements,
-                new[] { typeof(TValue).Name}
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<TValue> GetGreaterOrEqualThanChecks<TValue>(TValue comparer) where TValue : struct, IComparable<TValue>
+        {
+            return new CheckFunctions<TValue>(
+                "CollectionHasElements",
+                (v) => Validate.GreaterOrEqualThan(v, comparer),
+                (v, msg, args) => Validate.GreaterOrEqualThan(v, comparer, msg, args),
+                (v, param) => Validate.ArgumentGreaterOrEqualThan(v, comparer, param),
+                (v, param, msg, args) => Validate.ArgumentGreaterOrEqualThan(v, comparer, param, msg, args),
+                new[] { typeof(TValue).Name }
                 );
         }
 
@@ -90,6 +102,8 @@ namespace CheckContracts.Tests
 
             result.AddRange(CreateCorrectCases(new[] {new [] {1}}, new[]{ new int[0], null}, GetCollectionHasElementsChecks<int>()));
             result.AddRange(CreateCorrectCases(new[] {new [] {string.Empty}}, new []{ new string[0], null}, GetCollectionHasElementsChecks<string>()));
+
+            result.AddRange(CreateCorrectCases(new[] {0,1}, new []{ -1 }, GetGreaterOrEqualThanChecks(0)));
 
             return result.ToArray();
         }

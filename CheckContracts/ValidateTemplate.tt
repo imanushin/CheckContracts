@@ -22,58 +22,58 @@ var equalityTypes = comparableTypes.Concat(new[]{ "string" }).ToArray();
 var checksArray = new []
 {
     Tuple.Create(
-        "GreaterThan",
-        comparableTypes,
+        "GreaterThan<TValue>",
+        new[] {"TValue"},
         new []{"value", "minValue"},
-        "value > minValue",
+        "value.CompareTo(minValue) > 0",
         "Value of type {0} should be greater than {1}. Current value: {2}",
-        "value.GetType(), value, minValue",
+        "typeof(TValue), value, minValue",
         "Checks that input value is greater (and not equal with) minValue",
-        ""
+        "where TValue : struct, IComparable<TValue>"
         ),
 
     Tuple.Create(
-        "GreaterOrEqualThan",
-        comparableTypes,
+        "GreaterOrEqualThan<TValue>",
+        new[] {"TValue"},
         new []{"value", "minValue"},
-        "value >= minValue",
+        "value.CompareTo(minValue) >= 0",
         "Value of type {0} should be greater or equal than {1}. Current value: {2}",
-        "value.GetType(), value, minValue",
+        "typeof(TValue), value, minValue",
         "Checks that input value is greater or equal with minValue",
-        ""
+        "where TValue : struct, IComparable<TValue>"
         ),
 
     Tuple.Create(
-        "LessThan",
-        comparableTypes,
+        "LessThan<TValue>",
+        new[] {"TValue"},
         new []{"value", "maxValue"},
-        "value < maxValue",
+        "value.CompareTo(maxValue) < 0",
         "Value of type {0} should be less than {1}. Current value: {2}",
-        "value.GetType(), value, maxValue",
+        "typeof(TValue), value, maxValue",
         "Checks that input value is less (and not equal with) maxValue",
-        ""
+        "where TValue : struct, IComparable<TValue>"
         ),
 
     Tuple.Create(
-        "LessOrEqualThan",
-        comparableTypes,
+        "LessOrEqualThan<TValue>",
+        new[] {"TValue"},
         new []{"value", "maxValue"},
-        "value <= maxValue",
+        "value.CompareTo(maxValue) <= 0",
         "Value of type {0} should be less or equal than {1}. Current value: {2}",
-        "value.GetType(), value, maxValue",
+        "typeof(TValue), value, maxValue",
         "Checks that input value is less or equal with maxValue",
-        ""
+        "where TValue : struct, IComparable<TValue>"
         ),
 
     Tuple.Create(
-        "Between",
-        comparableTypes,
+        "Between<TValue>",
+        new[] {"TValue"},
         new []{ "value", "minValue", "maxValue" },
-        "minValue <= value && value <= maxValue",
+        "value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0",
         "Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}",
         "value.GetType(), value, minValue, maxValue",
         "Checks that input value is between minValue and maxValue (inclusive)",
-        ""
+        "where TValue : struct, IComparable<TValue>"
         ),
 
     Tuple.Create(
