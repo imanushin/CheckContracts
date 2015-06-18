@@ -92,7 +92,7 @@ namespace CheckContracts.Tests
                 (v, msg, args) => Validate.GreaterOrEqualThan(v, comparer, msg, args),
                 (v, param) => Validate.ArgumentGreaterOrEqualThan(v, comparer, param),
                 (v, param, msg, args) => Validate.ArgumentGreaterOrEqualThan(v, comparer, param, msg, args),
-                new[] { typeof(TValue).Name }
+                new[] { typeof(TValue).Name, comparer.ToString() }
                 );
         }
 
@@ -104,7 +104,7 @@ namespace CheckContracts.Tests
                 (v, msg, args) => Validate.GreaterThan(v, comparer, msg, args),
                 (v, param) => Validate.ArgumentGreaterThan(v, comparer, param),
                 (v, param, msg, args) => Validate.ArgumentGreaterThan(v, comparer, param, msg, args),
-                new[] { typeof(TValue).Name }
+                new[] { typeof(TValue).Name, comparer.ToString() }
                 );
         }
 
@@ -116,7 +116,7 @@ namespace CheckContracts.Tests
                 (v, msg, args) => Validate.LessOrEqualThan(v, comparer, msg, args),
                 (v, param) => Validate.ArgumentLessOrEqualThan(v, comparer, param),
                 (v, param, msg, args) => Validate.ArgumentLessOrEqualThan(v, comparer, param, msg, args),
-                new[] { typeof(TValue).Name }
+                new[] { typeof(TValue).Name, comparer.ToString() }
                 );
         }
 
@@ -128,7 +128,7 @@ namespace CheckContracts.Tests
                 (v, msg, args) => Validate.LessThan(v, comparer, msg, args),
                 (v, param) => Validate.ArgumentLessThan(v, comparer, param),
                 (v, param, msg, args) => Validate.ArgumentLessThan(v, comparer, param, msg, args),
-                new[] { typeof(TValue).Name }
+                new[] { typeof(TValue).Name, comparer.ToString() }
                 );
         }
 
@@ -140,7 +140,7 @@ namespace CheckContracts.Tests
                 (v, msg, args) => Validate.Between(v, min, max, msg, args),
                 (v, param) => Validate.ArgumentBetween(v, min, max, param),
                 (v, param, msg, args) => Validate.ArgumentBetween(v, min, max, param, msg, args),
-                new[] { typeof(TValue).Name }
+                new[] { typeof(TValue).Name, max.ToString(), min.ToString() }
                 );
         }
 
