@@ -132,6 +132,67 @@ namespace CheckContracts.Tests
                 );
         }
 
+        private static CheckFunctions<TValue> GetBetweenChecks<TValue>(TValue min, TValue max) where TValue : struct, IComparable<TValue>
+        {
+            return new CheckFunctions<TValue>(
+                "Between",
+                (v) => Validate.Between(v, min, max),
+                (v, msg, args) => Validate.Between(v, min, max, msg, args),
+                (v, param) => Validate.ArgumentBetween(v, min, max, param),
+                (v, param, msg, args) => Validate.ArgumentBetween(v, min, max, param, msg, args),
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<TValue> GetEqualsWithChecks<TValue>(TValue comparer)
+        {
+            return new CheckFunctions<TValue>(
+                "EqualsWith",
+                (v) => Validate.EqualsWith(v, comparer),
+                (v, msg, args) => Validate.EqualsWith(v, comparer, msg, args),
+                (v, param) => Validate.ArgumentEqualsWith(v, comparer, param),
+                (v, param, msg, args) => Validate.ArgumentEqualsWith(v, comparer, param, msg, args),
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<bool> GetConditionChecks()
+        {
+            return new CheckFunctions<bool>(
+                "Condition",
+                Validate.Condition,
+                Validate.Condition,
+                Validate.ArgumentCondition,
+                Validate.ArgumentCondition,
+                new string[] { }
+                );
+        }
+
+        private static CheckFunctions<TValue> GetEnumerationValueIsDefinedChecks<TValue>() 
+            where TValue : struct, IConvertible
+        {
+            return new CheckFunctions<TValue>(
+                "Condition",
+                Validate.EnumerationValueIsDefined,
+                Validate.EnumerationValueIsDefined,
+                Validate.ArgumentEnumerationValueIsDefined,
+                Validate.ArgumentEnumerationValueIsDefined,
+                new[] {  typeof(TValue).Name}
+                );
+        }
+
+        private static CheckFunctions<string> GetStringIsMeanfulChecks()
+        {
+            return new CheckFunctions<string>(
+                "StringIsMeanful",
+                Validate.StringIsMeanful,
+                Validate.StringIsMeanful,
+                Validate.ArgumentStringIsMeanful,
+                Validate.ArgumentStringIsMeanful,
+                new string[] { }
+                );
+        }
+
         private static ValidationCase[] CreateExceptionalCases()
         {
             var result = new List<ValidationCase>();
@@ -143,6 +204,17 @@ namespace CheckContracts.Tests
             result.AddRange(CreateCorrectCases(new[] {1}, new []{ -1, 0 }, GetGreaterThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] {-1, 0}, new []{ 1 }, GetLessOrEqualThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] {-1}, new []{ 1, 0 }, GetLessThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] {1,2,3}, new []{ 0, 4 }, GetBetweenChecks(1,3)));
+
+            result.AddRange(CreateCorrectCases(new[] {0}, new []{ 1, -1 }, GetEqualsWithChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] {"123"}, new []{ "1",string.Empty, null }, GetEqualsWithChecks("123")));
+            result.AddRange(CreateCorrectCases(new string[] {null}, new []{ "1",string.Empty }, GetEqualsWithChecks<string>(null)));
+
+            result.AddRange(CreateCorrectCases(new[] { true }, new[] { false }, GetConditionChecks()));
+
+            result.AddRange(CreateCorrectCases(new[] { "123" }, new[] { string.Empty, null, "   " }, GetStringIsMeanfulChecks()));
+
+            result.AddRange(CreateCorrectCases(new[] { StringSplitOptions.None, StringSplitOptions.RemoveEmptyEntries }, new StringSplitOptions[] { (StringSplitOptions)128 }, GetEnumerationValueIsDefinedChecks<StringSplitOptions>()));
 
             return result.ToArray();
         }
