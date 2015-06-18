@@ -2,19 +2,22 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>CheckContracts</id>
-        <version>1.3.1.0</version>
+        <version>1.4.0.0</version>
         <authors>Igor Manushin</authors>
         <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Library to simplify runtime checking by using code contracts.</description>
         <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
-        <releaseNotes>Copy Validate static class from NuGet package.</releaseNotes>
+        <releaseNotes>Support JetBrains code annotations. Add new generic check functions. Improve speed by code generation.</releaseNotes>
         <language>en-US</language>
-        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting, Safe Type Casting, ReSharper, PCL, Portable Class Library, Runtime Checking</tags>
+        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting, Safe Type Casting, ReSharper, PCL, Portable Class Library, Runtime Checking, JetBrains.Annotations, JetBrains, Annotations</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
         </frameworkAssemblies>
+        <dependencies>
+            <dependency id="JetBrains.Annotations" version="8.0.3.0" />
+        </dependencies>
     </metadata>
     <files>
         <file src="..\binary\CheckContracts.dll" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.dll" />
