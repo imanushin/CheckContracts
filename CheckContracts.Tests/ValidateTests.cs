@@ -37,7 +37,7 @@ namespace CheckContracts.Tests
                 .And.Message.Contains("is null")
                 .And.Message.Contains("String"));
             Assert.That(()=>Validate.ArgumentCollectionHasElements(nullCollection, "arg1"), 
-                Throws.InvalidOperationException
+                Throws.ArgumentException
                 .And.Message.Contains("String")
                 .And.Message.Contains("is null")
                 .And.Message.Contains("arg1"));
@@ -47,7 +47,7 @@ namespace CheckContracts.Tests
                 .And.Message.Contains("is not null")
                .And.Message.Contains("String"));
             Assert.That(() => Validate.ArgumentCollectionHasElements(emptyCollection, "arg1"),
-                Throws.InvalidOperationException
+                Throws.ArgumentException
                 .And.Message.Contains("String")
                 .And.Message.Contains("is not null")
                 .And.Message.Contains("arg1"));

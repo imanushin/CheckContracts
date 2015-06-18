@@ -188,7 +188,7 @@ namespace CheckContracts
 
             var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace CheckContracts
 
             var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         <#
         }

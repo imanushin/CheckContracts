@@ -53,7 +53,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -111,7 +111,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -169,7 +169,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -227,7 +227,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -285,7 +285,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -299,7 +299,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -343,7 +343,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -357,7 +357,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -401,7 +401,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -415,7 +415,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -459,7 +459,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -473,7 +473,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -517,7 +517,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -531,7 +531,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -575,7 +575,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -589,7 +589,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -633,7 +633,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -647,7 +647,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -691,7 +691,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -705,7 +705,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -749,7 +749,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -763,7 +763,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -807,7 +807,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -821,7 +821,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -865,7 +865,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -879,7 +879,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -923,7 +923,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -937,7 +937,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -981,7 +981,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -995,7 +995,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1039,7 +1039,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1053,7 +1053,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1097,7 +1097,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1111,7 +1111,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1155,7 +1155,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1169,7 +1169,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1213,7 +1213,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1227,7 +1227,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1271,7 +1271,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1285,7 +1285,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1329,7 +1329,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1343,7 +1343,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1387,7 +1387,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1401,7 +1401,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, minValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1445,7 +1445,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1459,7 +1459,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1503,7 +1503,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1517,7 +1517,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1561,7 +1561,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1575,7 +1575,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1619,7 +1619,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1633,7 +1633,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1677,7 +1677,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1691,7 +1691,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1735,7 +1735,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1749,7 +1749,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1793,7 +1793,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1807,7 +1807,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1851,7 +1851,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1865,7 +1865,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1909,7 +1909,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1923,7 +1923,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -1967,7 +1967,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -1981,7 +1981,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2025,7 +2025,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2039,7 +2039,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2083,7 +2083,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2097,7 +2097,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2141,7 +2141,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2155,7 +2155,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2199,7 +2199,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2213,7 +2213,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2257,7 +2257,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2271,7 +2271,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2315,7 +2315,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2329,7 +2329,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2373,7 +2373,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2387,7 +2387,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2431,7 +2431,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2445,7 +2445,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2489,7 +2489,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2503,7 +2503,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2547,7 +2547,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2561,7 +2561,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2605,7 +2605,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2619,7 +2619,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2663,7 +2663,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2677,7 +2677,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2721,7 +2721,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2735,7 +2735,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2779,7 +2779,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2793,7 +2793,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ value.GetType(), value, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2837,7 +2837,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2851,7 +2851,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2895,7 +2895,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2909,7 +2909,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -2953,7 +2953,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -2967,7 +2967,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3011,7 +3011,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3025,7 +3025,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3069,7 +3069,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3083,7 +3083,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3127,7 +3127,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3141,7 +3141,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3185,7 +3185,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3199,7 +3199,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3243,7 +3243,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3257,7 +3257,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3301,7 +3301,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3315,7 +3315,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3359,7 +3359,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3373,7 +3373,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3417,7 +3417,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3431,7 +3431,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3475,7 +3475,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3489,7 +3489,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3533,7 +3533,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3547,7 +3547,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3591,7 +3591,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3605,7 +3605,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3649,7 +3649,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Condition was failed", new object[]{  }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3663,7 +3663,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Condition was failed", new object[]{  }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3707,7 +3707,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3721,7 +3721,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Input string is empty: '{0}'", new object[]{ inputString ?? "{null}" }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
         
         /// <summary>
@@ -3765,7 +3765,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Enumeration value {0} is not defined for type {1}", new object[]{ enumeration, typeof(TEnum) }, errorFormat, args, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
 
         /// <summary>
@@ -3779,7 +3779,7 @@ namespace CheckContracts
 
             var message = BuildMessage("Enumeration value {0} is not defined for type {1}", new object[]{ enumeration, typeof(TEnum) }, null, null, argumentName);
 
-            throw new InvalidOperationException(message);
+            throw new ArgumentException(message);
         }
                 
     }
