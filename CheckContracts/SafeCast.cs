@@ -12,7 +12,7 @@ namespace CheckContracts
     public static class SafeCast
     {
         /// <summary>
-        /// Cast input value to the target type. It can be useful during implementing <typeparamref name="IValueConverter"/> interface.
+        /// Cast input value to the target type. It can be useful during implementing WPF <typeparamref name="IValueConverter"/> interface.
         /// Method raises ArgumentNullException in case of null argument.
         /// </summary>
         [ContractAnnotation("input:null => halt")]
@@ -35,7 +35,7 @@ namespace CheckContracts
         }
 
         /// <summary>
-        /// Cast input value to the target type. It can be useful during implementing <typeparamref name="IValueConverter"/> interface.
+        /// Cast input value to the target type. It can be useful during implementing WPF <typeparamref name="IValueConverter"/> interface.
         /// Method raises InvalidOperationException in case of <paramref name="input"/>.
         /// </summary>
         [ContractAnnotation("input:null => halt")]
