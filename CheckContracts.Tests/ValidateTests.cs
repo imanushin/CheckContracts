@@ -168,6 +168,54 @@ namespace CheckContracts.Tests
                 );
         }
 
+        private static CheckFunctions<int> GetGreaterThanZeroIntChecks()
+        {
+            return new CheckFunctions<int>(
+                "Condition",
+                Validate.GreaterThanZero,
+                Validate.GreaterThanZero,
+                Validate.ArgumentGreaterThanZero,
+                Validate.ArgumentGreaterThanZero,
+                new string[] { }
+                );
+        }
+
+        private static CheckFunctions<double> GetGreaterThanZeroDoubleChecks()
+        {
+            return new CheckFunctions<double>(
+                "Condition",
+                Validate.GreaterThanZero,
+                Validate.GreaterThanZero,
+                Validate.ArgumentGreaterThanZero,
+                Validate.ArgumentGreaterThanZero,
+                new string[] { }
+                );
+        }
+
+        private static CheckFunctions<int> GetGreaterOrEqualThanZeroIntChecks()
+        {
+            return new CheckFunctions<int>(
+                "Condition",
+                Validate.GreaterOrEqualThanZero,
+                Validate.GreaterOrEqualThanZero,
+                Validate.ArgumentGreaterOrEqualThanZero,
+                Validate.ArgumentGreaterOrEqualThanZero,
+                new string[] { }
+                );
+        }
+
+        private static CheckFunctions<double> GetGreaterOrEqualThanZeroDoubleChecks()
+        {
+            return new CheckFunctions<double>(
+                "Condition",
+                Validate.GreaterOrEqualThanZero,
+                Validate.GreaterOrEqualThanZero,
+                Validate.ArgumentGreaterOrEqualThanZero,
+                Validate.ArgumentGreaterOrEqualThanZero,
+                new string[] { }
+                );
+        }
+
         private static CheckFunctions<TValue> GetEnumerationValueIsDefinedChecks<TValue>() 
             where TValue : struct, IConvertible
         {
@@ -200,6 +248,12 @@ namespace CheckContracts.Tests
             result.AddRange(CreateCorrectCases(new[] {new [] {1}}, new[]{ new int[0], null}, GetCollectionHasElementsChecks<int>()));
             result.AddRange(CreateCorrectCases(new[] {new [] {string.Empty}}, new []{ new string[0], null}, GetCollectionHasElementsChecks<string>()));
 
+            result.AddRange(CreateCorrectCases(new[] { 1 }, new[] { -1, 0 }, GetGreaterThanZeroIntChecks()));
+            result.AddRange(CreateCorrectCases(new[] { 1, 0 }, new[] { -1 }, GetGreaterOrEqualThanZeroIntChecks()));
+
+            result.AddRange(CreateCorrectCases(new[] { 1.0 }, new[] { -1.0, +0.0 }, GetGreaterThanZeroDoubleChecks()));
+            result.AddRange(CreateCorrectCases(new[] { 1.0, +0.0 }, new[] { -1.0 }, GetGreaterOrEqualThanZeroDoubleChecks()));
+
             result.AddRange(CreateCorrectCases(new[] {0,1}, new []{ -1 }, GetGreaterOrEqualThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] {1}, new []{ -1, 0 }, GetGreaterThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] {-1, 0}, new []{ 1 }, GetLessOrEqualThanChecks(0)));
@@ -224,7 +278,9 @@ namespace CheckContracts.Tests
             IEnumerable<TValue> inccorrectValues, 
             CheckFunctions<TValue> checkFunction)
         {
-            foreach (var value in correctValues)
+            var emptyStringArray = new string[0];
+
+           foreach (var value in correctValues)
             {
                 var name = checkFunction.functionName + " of " + value;
 
@@ -245,6 +301,13 @@ namespace CheckContracts.Tests
                 yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "longMessage {0}", new object[] { "formatParameter" }), true, formatterRequirements, typeof(InvalidOperationException), name);
                 yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, "arg1"), true, nonFormatRequirements, typeof(ArgumentException), name);
                 yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, "arg1", "longMessage {0}", new object[] { "formatParameter" }), true, formatterRequirements, typeof(ArgumentException), name);
+
+                // invalid input parameters
+                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "longMessage {0}", new object[] { "formatParameter", "formatParameter2" }), true, emptyStringArray, typeof(InvalidOperationException), name);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, null), true, emptyStringArray, typeof(ArgumentException), name);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, string.Empty), true, emptyStringArray, typeof(ArgumentException), name);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, null, "longMessage {0}", new object[] { "formatParameter" }), true, emptyStringArray, typeof(ArgumentException), name);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, string.Empty, "longMessage {0}", new object[] { "formatParameter" }), true, emptyStringArray, typeof(ArgumentException), name);
             }
         }
 

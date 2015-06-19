@@ -13,6 +13,238 @@ namespace CheckContracts
     {
 
         /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterThanZero(int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterThanZero(int value) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterThanZero(int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterThanZero(int value, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+        
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterThanZero(double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterThanZero(double value) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterThanZero(double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater zero
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterThanZero(double value, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(value > 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+        
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterOrEqualThanZero(int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterOrEqualThanZero(int value) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterOrEqualThanZero(int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterOrEqualThanZero(int value, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+        
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterOrEqualThanZero(double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void GreaterOrEqualThanZero(double value) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterOrEqualThanZero(double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that input value is greater or equal than zero
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentGreaterOrEqualThanZero(double value, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(value >= 0)
+                return;
+
+            var message = BuildMessage("Value of type {0} should be greater or equal than zero. Current value: {1}", new object[]{ value.GetType(), value }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+        
+        /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
         [StringFormatMethod("errorFormat")]

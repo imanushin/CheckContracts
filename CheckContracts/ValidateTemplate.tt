@@ -22,6 +22,28 @@ var equalityTypes = comparableTypes.Concat(new[]{ "string" }).ToArray();
 var checksArray = new []
 {
     Tuple.Create(
+        "GreaterThanZero",
+        new[] {"int", "double"},
+        new []{"value"},
+        "value > 0",
+        "Value of type {0} should be greater than zero. Current value: {1}",
+        "value.GetType(), value",
+        "Checks that input value is greater zero",
+        ""
+        ),
+
+    Tuple.Create(
+        "GreaterOrEqualThanZero",
+        new[] {"int", "double"},
+        new []{"value"},
+        "value >= 0",
+        "Value of type {0} should be greater or equal than zero. Current value: {1}",
+        "value.GetType(), value",
+        "Checks that input value is greater or equal than zero",
+        ""
+        ),
+
+    Tuple.Create(
         "GreaterThan<TValue>",
         new[] {"TValue"},
         new []{"value", "minValue"},
