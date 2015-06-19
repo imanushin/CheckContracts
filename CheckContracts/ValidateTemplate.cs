@@ -17,7 +17,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero(int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterThanZero([CanBeNull] int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value > 0)
                 return;
@@ -31,7 +31,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero(int value) 
+        public static void GreaterThanZero([CanBeNull] int value) 
         {
             if(value > 0)
                 return;
@@ -46,7 +46,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero(int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value > 0)
                 return;
@@ -60,7 +60,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero(int value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value > 0)
                 return;
@@ -75,7 +75,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero(double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterThanZero([CanBeNull] double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value > 0)
                 return;
@@ -89,7 +89,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero(double value) 
+        public static void GreaterThanZero([CanBeNull] double value) 
         {
             if(value > 0)
                 return;
@@ -104,7 +104,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero(double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value > 0)
                 return;
@@ -118,7 +118,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero(double value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value > 0)
                 return;
@@ -133,7 +133,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero(int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterOrEqualThanZero([CanBeNull] int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value >= 0)
                 return;
@@ -147,7 +147,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero(int value) 
+        public static void GreaterOrEqualThanZero([CanBeNull] int value) 
         {
             if(value >= 0)
                 return;
@@ -162,7 +162,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero(int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value >= 0)
                 return;
@@ -176,7 +176,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero(int value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value >= 0)
                 return;
@@ -191,7 +191,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero(double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterOrEqualThanZero([CanBeNull] double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value >= 0)
                 return;
@@ -205,7 +205,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero(double value) 
+        public static void GreaterOrEqualThanZero([CanBeNull] double value) 
         {
             if(value >= 0)
                 return;
@@ -220,7 +220,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero(double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value >= 0)
                 return;
@@ -234,7 +234,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero(double value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value >= 0)
                 return;
@@ -249,7 +249,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThan<TValue>(TValue value, TValue minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void GreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
@@ -263,7 +263,7 @@ namespace CheckContracts
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThan<TValue>(TValue value, TValue minValue) where TValue : struct, IComparable<TValue>
+        public static void GreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
@@ -278,7 +278,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThan<TValue>(TValue value, TValue minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
@@ -292,7 +292,7 @@ namespace CheckContracts
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThan<TValue>(TValue value, TValue minValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
@@ -307,7 +307,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThan<TValue>(TValue value, TValue minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void GreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
@@ -321,7 +321,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal with minValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThan<TValue>(TValue value, TValue minValue) where TValue : struct, IComparable<TValue>
+        public static void GreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
@@ -336,7 +336,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThan<TValue>(TValue value, TValue minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
@@ -350,7 +350,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal with minValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThan<TValue>(TValue value, TValue minValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
@@ -365,7 +365,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessThan<TValue>(TValue value, TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void LessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
@@ -379,7 +379,7 @@ namespace CheckContracts
         /// Checks that input value is less (and not equal with) maxValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessThan<TValue>(TValue value, TValue maxValue) where TValue : struct, IComparable<TValue>
+        public static void LessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
@@ -394,7 +394,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessThan<TValue>(TValue value, TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
@@ -408,7 +408,7 @@ namespace CheckContracts
         /// Checks that input value is less (and not equal with) maxValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessThan<TValue>(TValue value, TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
@@ -423,7 +423,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessOrEqualThan<TValue>(TValue value, TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void LessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
@@ -437,7 +437,7 @@ namespace CheckContracts
         /// Checks that input value is less or equal with maxValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessOrEqualThan<TValue>(TValue value, TValue maxValue) where TValue : struct, IComparable<TValue>
+        public static void LessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
@@ -452,7 +452,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessOrEqualThan<TValue>(TValue value, TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
@@ -466,7 +466,7 @@ namespace CheckContracts
         /// Checks that input value is less or equal with maxValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessOrEqualThan<TValue>(TValue value, TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
@@ -481,7 +481,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Between<TValue>(TValue value, TValue minValue, TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void Between<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
@@ -495,7 +495,7 @@ namespace CheckContracts
         /// Checks that input value is between minValue and maxValue (inclusive)
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Between<TValue>(TValue value, TValue minValue, TValue maxValue) where TValue : struct, IComparable<TValue>
+        public static void Between<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
@@ -510,7 +510,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentBetween<TValue>(TValue value, TValue minValue, TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentBetween<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
@@ -524,7 +524,7 @@ namespace CheckContracts
         /// Checks that input value is between minValue and maxValue (inclusive)
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentBetween<TValue>(TValue value, TValue minValue, TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentBetween<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
@@ -539,7 +539,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EqualsWith<TValue>(TValue value, TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void EqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -553,7 +553,7 @@ namespace CheckContracts
         /// Checks that value is equal with expected value
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EqualsWith<TValue>(TValue value, TValue expected) 
+        public static void EqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -568,7 +568,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -582,7 +582,7 @@ namespace CheckContracts
         /// Checks that value is equal with expected value
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -597,7 +597,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void NotEqualsWith<TValue>(TValue value, TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void NotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -611,7 +611,7 @@ namespace CheckContracts
         /// Checks that value is not equal with expected value
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void NotEqualsWith<TValue>(TValue value, TValue expected) 
+        public static void NotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -626,7 +626,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentNotEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentNotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -640,7 +640,7 @@ namespace CheckContracts
         /// Checks that value is not equal with expected value
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentNotEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentNotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -655,7 +655,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void CollectionHasElements<TValue>(IEnumerable<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        [ContractAnnotation("collection:null=>halt")]
+        public static void CollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -669,7 +670,8 @@ namespace CheckContracts
         /// Checks that input collection has elements
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void CollectionHasElements<TValue>(IEnumerable<TValue> collection) 
+        [ContractAnnotation("collection:null=>halt")]
+        public static void CollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -684,7 +686,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentCollectionHasElements<TValue>(IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("collection:null=>halt")]
+        public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -698,7 +701,8 @@ namespace CheckContracts
         /// Checks that input collection has elements
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentCollectionHasElements<TValue>(IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("collection:null=>halt")]
+        public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -713,7 +717,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Condition(bool condition, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        [ContractAnnotation("condition:false=>halt")]
+        public static void Condition([CanBeNull] bool condition, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(condition)
                 return;
@@ -727,7 +732,8 @@ namespace CheckContracts
         /// Condition check
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Condition(bool condition) 
+        [ContractAnnotation("condition:false=>halt")]
+        public static void Condition([CanBeNull] bool condition) 
         {
             if(condition)
                 return;
@@ -742,7 +748,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentCondition(bool condition, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("condition:false=>halt")]
+        public static void ArgumentCondition([CanBeNull] bool condition, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(condition)
                 return;
@@ -756,7 +763,8 @@ namespace CheckContracts
         /// Condition check
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentCondition(bool condition, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("condition:false=>halt")]
+        public static void ArgumentCondition([CanBeNull] bool condition, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(condition)
                 return;
@@ -771,7 +779,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void StringIsMeanful(string inputString, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        [ContractAnnotation("inputString:null=>halt")]
+        public static void StringIsMeanful([CanBeNull] string inputString, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -785,7 +794,8 @@ namespace CheckContracts
         /// Checks that input string is not null, is not empty and is not writespace
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void StringIsMeanful(string inputString) 
+        [ContractAnnotation("inputString:null=>halt")]
+        public static void StringIsMeanful([CanBeNull] string inputString) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -800,7 +810,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentStringIsMeanful(string inputString, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("inputString:null=>halt")]
+        public static void ArgumentStringIsMeanful([CanBeNull] string inputString, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -814,7 +825,8 @@ namespace CheckContracts
         /// Checks that input string is not null, is not empty and is not writespace
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentStringIsMeanful(string inputString, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("inputString:null=>halt")]
+        public static void ArgumentStringIsMeanful([CanBeNull] string inputString, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -829,7 +841,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args ) where TEnum : struct, IConvertible
+        public static void EnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args ) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -843,7 +855,7 @@ namespace CheckContracts
         /// Checks that enumeration value is defined. Uses Enum.IsDefined function
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration) where TEnum : struct, IConvertible
+        public static void EnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -858,7 +870,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TEnum : struct, IConvertible
+        public static void ArgumentEnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -872,7 +884,7 @@ namespace CheckContracts
         /// Checks that enumeration value is defined. Uses Enum.IsDefined function
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName) where TEnum : struct, IConvertible
+        public static void ArgumentEnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration, [InvokerParameterName, NotNull] string argumentName) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;

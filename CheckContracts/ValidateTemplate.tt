@@ -21,7 +21,7 @@ var equalityTypes = comparableTypes.Concat(new[]{ "string" }).ToArray();
 
 var checksArray = new []
 {
-    Tuple.Create(
+    new object[]{
         "GreaterThanZero",
         new[] {"int", "double"},
         new []{"value"},
@@ -29,10 +29,11 @@ var checksArray = new []
         "Value of type {0} should be greater than zero. Current value: {1}",
         "value.GetType(), value",
         "Checks that input value is greater zero",
+        "",
         ""
-        ),
+        },
 
-    Tuple.Create(
+    new object[]{
         "GreaterOrEqualThanZero",
         new[] {"int", "double"},
         new []{"value"},
@@ -40,10 +41,11 @@ var checksArray = new []
         "Value of type {0} should be greater or equal than zero. Current value: {1}",
         "value.GetType(), value",
         "Checks that input value is greater or equal than zero",
+        "",
         ""
-        ),
+        },
 
-    Tuple.Create(
+    new object[]{
         "GreaterThan<TValue>",
         new[] {"TValue"},
         new []{"value", "minValue"},
@@ -51,10 +53,11 @@ var checksArray = new []
         "Value of type {0} should be greater than {1}. Current value: {2}",
         "typeof(TValue), value, minValue",
         "Checks that input value is greater (and not equal with) minValue",
-        "where TValue : struct, IComparable<TValue>"
-        ),
+        "where TValue : struct, IComparable<TValue>",
+        ""
+        },
 
-    Tuple.Create(
+    new object[]{
         "GreaterOrEqualThan<TValue>",
         new[] {"TValue"},
         new []{"value", "minValue"},
@@ -62,10 +65,11 @@ var checksArray = new []
         "Value of type {0} should be greater or equal than {1}. Current value: {2}",
         "typeof(TValue), value, minValue",
         "Checks that input value is greater or equal with minValue",
-        "where TValue : struct, IComparable<TValue>"
-        ),
+        "where TValue : struct, IComparable<TValue>",
+        ""
+        },
 
-    Tuple.Create(
+    new object[]{
         "LessThan<TValue>",
         new[] {"TValue"},
         new []{"value", "maxValue"},
@@ -73,10 +77,11 @@ var checksArray = new []
         "Value of type {0} should be less than {1}. Current value: {2}",
         "typeof(TValue), value, maxValue",
         "Checks that input value is less (and not equal with) maxValue",
-        "where TValue : struct, IComparable<TValue>"
-        ),
+        "where TValue : struct, IComparable<TValue>",
+        ""
+        },
 
-    Tuple.Create(
+    new object[]{
         "LessOrEqualThan<TValue>",
         new[] {"TValue"},
         new []{"value", "maxValue"},
@@ -84,10 +89,11 @@ var checksArray = new []
         "Value of type {0} should be less or equal than {1}. Current value: {2}",
         "typeof(TValue), value, maxValue",
         "Checks that input value is less or equal with maxValue",
-        "where TValue : struct, IComparable<TValue>"
-        ),
+        "where TValue : struct, IComparable<TValue>",
+        ""
+        },
 
-    Tuple.Create(
+    new object[]{
         "Between<TValue>",
         new[] {"TValue"},
         new []{ "value", "minValue", "maxValue" },
@@ -95,10 +101,11 @@ var checksArray = new []
         "Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}",
         "value.GetType(), value, minValue, maxValue",
         "Checks that input value is between minValue and maxValue (inclusive)",
-        "where TValue : struct, IComparable<TValue>"
-        ),
+        "where TValue : struct, IComparable<TValue>",
+        ""
+        },
 
-    Tuple.Create(
+    new object[]{
         "EqualsWith<TValue>",
         new [] {"TValue"},
         new []{ "value", "expected" },
@@ -106,10 +113,11 @@ var checksArray = new []
         "Value of type {0} should be {1} but was {2}",
         "typeof(TValue), value, expected",
         "Checks that value is equal with expected value",
+        "",
         ""
-        ),
+        },
 
-    Tuple.Create(
+    new object[]{
         "NotEqualsWith<TValue>",
         new [] {"TValue"},
         new []{ "value", "expected" },
@@ -117,10 +125,11 @@ var checksArray = new []
         "Value of type {0} should not be {1} they are equal",
         "typeof(TValue), value",
         "Checks that value is not equal with expected value",
+        "",
         ""
-        ),
+        },
 
-    Tuple.Create(
+    new object[]{
         "CollectionHasElements<TValue>",
         new [] {"IEnumerable<TValue>"},
         new []{ "collection" },
@@ -128,10 +137,11 @@ var checksArray = new []
         "Collection with elements of type {0} should not be empty. Collection is {1}null",
         "typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : \"not \"",
         "Checks that input collection has elements",
-        ""
-        ),
+        "",
+        "collection:null=>halt"
+        },
 
-    Tuple.Create(
+    new object[]{
         "Condition",
         new [] {"bool"},
         new []{ "condition" },
@@ -139,10 +149,11 @@ var checksArray = new []
         "Condition was failed",
         "",
         "Condition check",
-        ""
-        ),
+        "",
+        "condition:false=>halt"
+        },
 
-    Tuple.Create(
+    new object[]{
         "StringIsMeanful",
         new [] {"string"},
         new []{ "inputString" },
@@ -150,10 +161,11 @@ var checksArray = new []
         "Input string is empty: '{0}'",
         "inputString ?? \"{null}\"",
         "Checks that input string is not null, is not empty and is not writespace",
-        ""
-        ),
+        "",
+        "inputString:null=>halt"
+        },
 
-    Tuple.Create(
+    new object[]{
         "EnumerationValueIsDefined<TEnum>",
         new [] {"TEnum"},
         new []{ "enumeration" },
@@ -161,8 +173,9 @@ var checksArray = new []
         "Enumeration value {0} is not defined for type {1}",
         "enumeration, typeof(TEnum)",
         "Checks that enumeration value is defined. Uses Enum.IsDefined function",
-        "where TEnum : struct, IConvertible"
-        ),
+        "where TEnum : struct, IConvertible",
+        ""
+        },
 
 };
 
@@ -176,64 +189,67 @@ namespace CheckContracts
 <#
     foreach(var item in checksArray)
     {
-        foreach(var type in item.Item2)
+        foreach(var type in (string[])item[1])
         {
+            var contractAnnotations = string.IsNullOrEmpty((string)item[8]) ? string.Empty : string.Format("[ContractAnnotation(\"{0}\")]{1}        ", item[8], Environment.NewLine);
+
+            var baseArguments = string.Join(", ", ((string[])item[2]).Select(i=>string.Format("[CanBeNull] {0} {1}", type, i ) ) );
         #>
 
         /// <summary>
-        /// <#=item.Item7#>
+        /// <#=item[6]#>
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [NotNull] string errorFormat, [NotNull] params object[] args ) <#=item.Rest.Item1#>
+        <#=contractAnnotations#>public static void <#=item[0]#>(<#=baseArguments#>, [NotNull] string errorFormat, [NotNull] params object[] args ) <#=item[7]#>
         {
-            if(<#=item.Item4#>)
+            if(<#=item[3]#>)
                 return;
 
-            var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, errorFormat, args);
+            var message = BuildMessage("<#=item[4]#>", new object[]{ <#=item[5]#> }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
 
         /// <summary>
-        /// <#=item.Item7#>
+        /// <#=item[6]#>
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void <#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>) <#=item.Rest.Item1#>
+        <#=contractAnnotations#>public static void <#=item[0]#>(<#=baseArguments#>) <#=item[7]#>
         {
-            if(<#=item.Item4#>)
+            if(<#=item[3]#>)
                 return;
 
-            var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, null, null);
+            var message = BuildMessage("<#=item[4]#>", new object[]{ <#=item[5]#> }, null, null);
 
             throw new InvalidOperationException(message);
         }
 
         /// <summary>
-        /// <#=item.Item7#>
+        /// <#=item[6]#>
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ) )#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) <#=item.Rest.Item1#>
+        <#=contractAnnotations#>public static void Argument<#=item[0]#>(<#=baseArguments#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) <#=item[7]#>
         {
-            if(<#=item.Item4#>)
+            if(<#=item[3]#>)
                 return;
 
-            var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, errorFormat, args, argumentName);
+            var message = BuildMessage("<#=item[4]#>", new object[]{ <#=item[5]#> }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
 
         /// <summary>
-        /// <#=item.Item7#>
+        /// <#=item[6]#>
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Argument<#=item.Item1#>(<#=string.Join(", ", item.Item3.Select(i=>string.Format("{0} {1}", type, i ) ))#>, [InvokerParameterName, NotNull] string argumentName) <#=item.Rest.Item1#>
+        <#=contractAnnotations#>public static void Argument<#=item[0]#>(<#=baseArguments#>, [InvokerParameterName, NotNull] string argumentName) <#=item[7]#>
         {
-            if(<#=item.Item4#>)
+            if(<#=item[3]#>)
                 return;
 
-            var message = BuildMessage("<#=item.Item5#>", new object[]{ <#=item.Item6#> }, null, null, argumentName);
+            var message = BuildMessage("<#=item[4]#>", new object[]{ <#=item[5]#> }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
