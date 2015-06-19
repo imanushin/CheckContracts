@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContracts", "CheckContracts\CheckContracts.csproj", "{8C41D5E7-7229-49C0-8B2D-B05B0C113CE5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContracts.Tests", "CheckContracts.Tests\CheckContracts.Tests.csproj", "{A7688FC7-898F-4021-9A92-786B9BD59DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContracts.ResharperFileGeneration", "CheckContracts.ResharperFileGeneration\CheckContracts.ResharperFileGeneration.csproj", "{C709A212-695E-4214-8227-F64F1F82BE9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A7688FC7-898F-4021-9A92-786B9BD59DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7688FC7-898F-4021-9A92-786B9BD59DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7688FC7-898F-4021-9A92-786B9BD59DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C709A212-695E-4214-8227-F64F1F82BE9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C709A212-695E-4214-8227-F64F1F82BE9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C709A212-695E-4214-8227-F64F1F82BE9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C709A212-695E-4214-8227-F64F1F82BE9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
