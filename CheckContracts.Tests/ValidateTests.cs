@@ -156,6 +156,18 @@ namespace CheckContracts.Tests
                 );
         }
 
+        private static CheckFunctions<TValue> GetNotEqualsWithChecks<TValue>(TValue comparer)
+        {
+            return new CheckFunctions<TValue>(
+                "EqualsWith",
+                (v) => Validate.NotEqualsWith(v, comparer),
+                (v, msg, args) => Validate.NotEqualsWith(v, comparer, msg, args),
+                (v, param) => Validate.ArgumentNotEqualsWith(v, comparer, param),
+                (v, param, msg, args) => Validate.ArgumentNotEqualsWith(v, comparer, param, msg, args),
+                new[] { typeof(TValue).Name }
+                );
+        }
+
         private static CheckFunctions<bool> GetConditionChecks()
         {
             return new CheckFunctions<bool>(
@@ -260,9 +272,13 @@ namespace CheckContracts.Tests
             result.AddRange(CreateCorrectCases(new[] {-1}, new []{ 1, 0 }, GetLessThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] {1,2,3}, new []{ 0, 4 }, GetBetweenChecks(1,3)));
 
-            result.AddRange(CreateCorrectCases(new[] {0}, new []{ 1, -1 }, GetEqualsWithChecks(0)));
-            result.AddRange(CreateCorrectCases(new[] {"123"}, new []{ "1",string.Empty, null }, GetEqualsWithChecks("123")));
-            result.AddRange(CreateCorrectCases(new string[] {null}, new []{ "1",string.Empty }, GetEqualsWithChecks<string>(null)));
+            result.AddRange(CreateCorrectCases(new[] { 0 }, new[] { 1, -1 }, GetEqualsWithChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] { "123" }, new[] { "1", string.Empty, null }, GetEqualsWithChecks("123")));
+            result.AddRange(CreateCorrectCases(new string[] { null }, new[] { "1", string.Empty }, GetEqualsWithChecks<string>(null)));
+
+            result.AddRange(CreateCorrectCases(new[] { -1, 1 }, new[] { 0 }, GetNotEqualsWithChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] { null, string.Empty, "1" }, new[] { "123" }, GetNotEqualsWithChecks("123")));
+            result.AddRange(CreateCorrectCases(new[] { "1", string.Empty }, new string[] { null }, GetNotEqualsWithChecks<string>(null)));
 
             result.AddRange(CreateCorrectCases(new[] { true }, new[] { false }, GetConditionChecks()));
 

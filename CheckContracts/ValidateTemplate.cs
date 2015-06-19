@@ -535,7 +535,7 @@ namespace CheckContracts
         }
         
         /// <summary>
-        /// Checks that value is equals with expected value
+        /// Checks that value is equal with expected value
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
@@ -550,7 +550,7 @@ namespace CheckContracts
         }
 
         /// <summary>
-        /// Checks that value is equals with expected value
+        /// Checks that value is equal with expected value
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void EqualsWith<TValue>(TValue value, TValue expected) 
@@ -564,7 +564,7 @@ namespace CheckContracts
         }
 
         /// <summary>
-        /// Checks that value is equals with expected value
+        /// Checks that value is equal with expected value
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
@@ -579,7 +579,7 @@ namespace CheckContracts
         }
 
         /// <summary>
-        /// Checks that value is equals with expected value
+        /// Checks that value is equal with expected value
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
         public static void ArgumentEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName) 
@@ -588,6 +588,64 @@ namespace CheckContracts
                 return;
 
             var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+        
+        /// <summary>
+        /// Checks that value is not equal with expected value
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void NotEqualsWith<TValue>(TValue value, TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
+                return;
+
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that value is not equal with expected value
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void NotEqualsWith<TValue>(TValue value, TValue expected) 
+        {
+            if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
+                return;
+
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that value is not equal with expected value
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentNotEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
+                return;
+
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that value is not equal with expected value
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentNotEqualsWith<TValue>(TValue value, TValue expected, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
+                return;
+
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }

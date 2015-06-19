@@ -105,7 +105,18 @@ var checksArray = new []
         "ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected))",
         "Value of type {0} should be {1} but was {2}",
         "typeof(TValue), value, expected",
-        "Checks that value is equals with expected value",
+        "Checks that value is equal with expected value",
+        ""
+        ),
+
+    Tuple.Create(
+        "NotEqualsWith<TValue>",
+        new [] {"TValue"},
+        new []{ "value", "expected" },
+        "!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value)))",
+        "Value of type {0} should not be {1} they are equal",
+        "typeof(TValue), value",
+        "Checks that value is not equal with expected value",
         ""
         ),
 
