@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>CheckContracts</id>
-        <version>1.4.0.0</version>
+        <version>1.4.1.0</version>
         <authors>Igor Manushin</authors>
         <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>
@@ -15,9 +15,6 @@
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
         </frameworkAssemblies>
-        <dependencies>
-            <dependency id="JetBrains.Annotations" version="8.0.3.0" />
-        </dependencies>
     </metadata>
     <files>
         <file src="..\binary\CheckContracts.dll" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.dll" />

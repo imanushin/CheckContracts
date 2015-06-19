@@ -12,8 +12,6 @@ namespace CheckContracts.ResharperFileGeneration
     {
         private static void Main()
         {
-            AttributeGet.Analyze();
-
             using (var writer = new XmlTextWriter("CheckContracts.Nullness.Generated.xml", Encoding.UTF8))
             {
                 writer.WriteStartDocument();
