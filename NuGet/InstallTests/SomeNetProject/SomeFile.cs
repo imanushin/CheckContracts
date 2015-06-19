@@ -9,9 +9,11 @@ namespace SomeNetProject
 {
     internal static class SomeFile
     {
-        public static void SomeMethod(string str)
+        public static int SomeMethod(string str)
         {
-            Validate.ArgumentStringIsMeanful(str, "str");
+            Validate.ArgumentStringIsMeanful(null, "str");
+
+            return 2;
         }
     }
 }

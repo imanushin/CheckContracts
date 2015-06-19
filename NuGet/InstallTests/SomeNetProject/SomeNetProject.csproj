@@ -36,8 +36,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CheckContracts, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CheckContracts.1.4.0.0\lib\portable-net4+sl4+wp7+win8\CheckContracts.dll</HintPath>
+    <Reference Include="CheckContracts, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CheckContracts.1.4.1.0\lib\portable-net4+sl4+wp7+win8\CheckContracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="JetBrains.Annotations, Version=8.0.3.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
