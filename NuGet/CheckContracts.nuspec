@@ -9,9 +9,9 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Library to simplify runtime checking by using code contracts.</description>
         <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
-        <releaseNotes>Support JetBrains code annotations. Add new generic check functions. Improve speed by code generation.</releaseNotes>
+        <releaseNotes>Integrate JetBrains code annotations. Exclude JetBrains reference.</releaseNotes>
         <language>en-US</language>
-        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting, Safe Type Casting, ReSharper, PCL, Portable Class Library, Runtime Checking, JetBrains.Annotations, JetBrains, Annotations</tags>
+        <tags>CheckContracts, Validate, Validation, Checking, Contracts, Code Contracts, Type Casting, Safe Type Casting, ReSharper, PCL, Portable Class Library, Runtime Checking, JetBrains.Annotations, JetBrains, Annotations, Equality Check, Safe Cast, Safe Casting</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework="" />
         </frameworkAssemblies>
