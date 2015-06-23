@@ -1,74 +1,144 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using JetBrains.Annotations;
 
 namespace CheckContracts.ResharperFileGeneration
 {
     internal static class Program
     {
+        private static readonly string[] SimpleAttributeTypeNames = new[] { typeof(NotNullAttribute), typeof(CanBeNullAttribute), typeof(PureAttribute) }.Select(t => t.Name).ToArray();
+
+        private const string AttributeNamespace = "JetBrains.Annotations";
+
         private static void Main()
         {
-            using (var writer = new XmlTextWriter("CheckContracts.Nullness.Generated.xml", Encoding.UTF8))
+            WriteData().Wait();
+        }
+
+        private async static Task WriteData()
+        {
+            var assembly = typeof(Validate).Assembly;
+            var fileInfo = new FileInfo($"{assembly.GetName().Name}.ExternalAnnotations.xml");
+
+            using (var file = fileInfo.Open(FileMode.Create))
             {
-                writer.WriteStartDocument();
-
-                writer.WriteStartElement("assembly");
-                writer.WriteAttributeString("name", "CheckContracts");
-                writer.WriteWhitespace(Environment.NewLine);
-
-                foreach (var type in new[] {typeof(SafeCast), typeof(Validate)})
+                var settings = new XmlWriterSettings
                 {
-                    foreach (var methodInfo in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
+                    Indent = true,
+                    IndentChars = "     ",
+                    NewLineOnAttributes = false,
+                    OmitXmlDeclaration = true,
+                    Async = true,
+                    Encoding = Encoding.UTF8,
+                    CheckCharacters = true
+                };
+
+                using (var xmlWriter = XmlWriter.Create(file, settings))
+                {
+                    await xmlWriter.WriteStartDocumentAsync();
+
+                    await xmlWriter.WriteStartElementAsync(null, "assembly", null);
+                    await xmlWriter.WriteAttributeStringAsync(null, "name", null, string.Format("{0}, Version={1}", assembly.GetName().Name, assembly.GetName().Version));
+
+                    foreach (var type in assembly.GetTypes().Where(t => t.IsPublic && !typeof(Attribute).IsAssignableFrom(t) && !t.IsEnum))
                     {
-                        writer.WriteStartElement("member");
-                        writer.WriteAttributeString("name", methodInfo.Name);
-                        writer.WriteWhitespace(Environment.NewLine);
-
-                        WriteItemAttributes(methodInfo.GetCustomAttributes(), writer);
-
-                        foreach (var parameterInfo in methodInfo.GetParameters())
+                        foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public))
                         {
-                            writer.WriteStartElement("parameter");
-                            writer.WriteAttributeString("name", parameterInfo.Name);
-                            writer.WriteWhitespace(Environment.NewLine);
+                            var name = string.Format("M:{0}.{1}({2})", type.FullName, method.Name, string.Join(", ", method.GetParameters().Select(p => p.ParameterType.FullName)));
 
-                            WriteItemAttributes(parameterInfo.GetCustomAttributes(), writer);
+                            await xmlWriter.WriteStartElementAsync(null, "member", null);
 
-                            writer.WriteEndElement();
+                            await xmlWriter.WriteAttributeStringAsync(null, "name", null, name);
+
+                            foreach (var attribute in method.GetCustomAttributes<Attribute>(true))
+                            {
+                                await WriteAttribute(xmlWriter, attribute);
+                            }
+
+                            foreach (var parameterInfo in method.GetParameters())
+                            {
+                                await xmlWriter.WriteStartElementAsync(null, "parameter", null);
+                                await xmlWriter.WriteAttributeStringAsync(null, "name", null, parameterInfo.Name);
+
+                                foreach (var attribute in parameterInfo.GetCustomAttributes())
+                                {
+                                    await WriteAttribute(xmlWriter, attribute);
+                                }
+
+                                await xmlWriter.WriteEndElementAsync();
+                            }
+
+                            await xmlWriter.WriteEndElementAsync();
                         }
-
-                        writer.WriteEndElement();
                     }
+
+                    await xmlWriter.WriteEndElementAsync();
+
+                    await xmlWriter.WriteEndDocumentAsync();
                 }
-
-                writer.WriteEndElement();
-
-                writer.WriteEndDocument();
             }
         }
 
-        private static void WriteItemAttributes(IEnumerable<Attribute> attributes, XmlTextWriter writer)
+        private static Task WriteAttribute(XmlWriter xmlWriter, Attribute methodAttribute)
         {
-            foreach (var attribute in attributes)
+            var type = methodAttribute.GetType();
+
+            if (SimpleAttributeTypeNames.Contains(type.Name))
             {
-                WriteAttribute(writer, attribute);
+                return WriteEmptyCtorAttribute(xmlWriter, methodAttribute);
             }
+
+            if (typeof(StringFormatMethodAttribute) == type)
+            {
+                return WriteStringFormatMethodAttribute(xmlWriter, (StringFormatMethodAttribute)methodAttribute);
+            }
+
+            if (typeof(ContractAnnotationAttribute) == type)
+            {
+                return WriteContractAnnotationAttribute(xmlWriter, (ContractAnnotationAttribute)methodAttribute);
+            }
+
+            return Task.FromResult(0);
         }
 
-        private static void WriteAttribute(XmlWriter writer, Attribute attribute)
+        private static async Task WriteContractAnnotationAttribute(XmlWriter xmlWriter, ContractAnnotationAttribute attribute)
         {
-            if (attribute.GetType().Name == "NotNullAttribute")
-            {
-                writer.WriteStartElement("attribute");
-                writer.WriteAttributeString("ctor", "M:JetBrains.Annotations.NotNullAttribute.#ctor");
-                writer.WriteWhitespace(Environment.NewLine);
+            var ctorName = string.Format("M:{0}.{1}.#ctor(System.String)", AttributeNamespace, attribute.GetType().Name);
 
-                writer.WriteEndElement();
-            }
+            await xmlWriter.WriteStartElementAsync(null, "attribute", null);
+            await xmlWriter.WriteAttributeStringAsync(null, "ctor", null, ctorName);
+
+            await xmlWriter.WriteElementStringAsync(null, "argument", null, attribute.Contract);
+
+            await xmlWriter.WriteEndElementAsync();
+        }
+
+        private static async Task WriteStringFormatMethodAttribute(XmlWriter xmlWriter, StringFormatMethodAttribute attribute)
+        {
+            var ctorName = string.Format("M:{0}.{1}.#ctor(System.String)", AttributeNamespace, attribute.GetType().Name);
+
+            await xmlWriter.WriteStartElementAsync(null, "attribute", null);
+            await xmlWriter.WriteAttributeStringAsync(null, "ctor", null, ctorName);
+
+            await xmlWriter.WriteElementStringAsync(null, "argument", null, attribute.FormatParameterName);
+
+            await xmlWriter.WriteEndElementAsync();
+        }
+
+        private static async Task WriteEmptyCtorAttribute(XmlWriter xmlWriter, Attribute attribute)
+        {
+            var ctorName = string.Format("M:{0}.{1}.#ctor", AttributeNamespace, attribute.GetType().Name);
+
+            await xmlWriter.WriteStartElementAsync(null, "attribute", null);
+            await xmlWriter.WriteAttributeStringAsync(null, "ctor", null, ctorName);
+
+            await xmlWriter.WriteEndElementAsync();
         }
     }
 }
