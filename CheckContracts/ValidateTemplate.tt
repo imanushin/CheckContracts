@@ -19,6 +19,8 @@ var floatingPointTypes = new[]{"double", "float"};
 var comparableTypes = integerTypes.Concat(floatingPointTypes).Concat(new []{ "DateTime", "TimeSpan" }).ToArray();
 var equalityTypes = comparableTypes.Concat(new[]{ "string" }).ToArray();
 
+var primitiveTypes = new HashSet<string>(comparableTypes.Concat(new[]{"bool", "TEnum"}));
+
 var checksArray = new []
 {
     new object[]{
@@ -193,7 +195,9 @@ namespace CheckContracts
         {
             var contractAnnotations = string.IsNullOrEmpty((string)item[8]) ? string.Empty : string.Format("[ContractAnnotation(\"{0}\")]{1}        ", item[8], Environment.NewLine);
 
-            var baseArguments = string.Join(", ", ((string[])item[2]).Select(i=>string.Format("[CanBeNull] {0} {1}", type, i ) ) );
+            var canBeNullAttribute = primitiveTypes.Contains(type) ? string.Empty : "[CanBeNull] ";
+
+            var baseArguments = string.Join(", ", ((string[])item[2]).Select(i=>string.Format("{0}{1} {2}", canBeNullAttribute, type, i ) ) );
         #>
 
         /// <summary>

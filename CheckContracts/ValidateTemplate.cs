@@ -6,6 +6,7 @@ using System.Linq;
 using JetBrains.Annotations;
 
 
+
 namespace CheckContracts
 {
     partial class Validate
@@ -16,7 +17,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero([CanBeNull] int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterThanZero(int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value > 0)
                 return;
@@ -30,7 +31,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero([CanBeNull] int value) 
+        public static void GreaterThanZero(int value) 
         {
             if(value > 0)
                 return;
@@ -45,7 +46,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterThanZero(int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value > 0)
                 return;
@@ -59,7 +60,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterThanZero(int value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value > 0)
                 return;
@@ -74,7 +75,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero([CanBeNull] double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterThanZero(double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value > 0)
                 return;
@@ -88,7 +89,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThanZero([CanBeNull] double value) 
+        public static void GreaterThanZero(double value) 
         {
             if(value > 0)
                 return;
@@ -103,7 +104,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterThanZero(double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value > 0)
                 return;
@@ -117,7 +118,7 @@ namespace CheckContracts
         /// Checks that input value is greater zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterThanZero(double value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value > 0)
                 return;
@@ -132,7 +133,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero([CanBeNull] int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterOrEqualThanZero(int value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value >= 0)
                 return;
@@ -146,7 +147,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero([CanBeNull] int value) 
+        public static void GreaterOrEqualThanZero(int value) 
         {
             if(value >= 0)
                 return;
@@ -161,7 +162,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterOrEqualThanZero(int value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value >= 0)
                 return;
@@ -175,7 +176,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] int value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterOrEqualThanZero(int value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value >= 0)
                 return;
@@ -190,7 +191,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero([CanBeNull] double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void GreaterOrEqualThanZero(double value, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(value >= 0)
                 return;
@@ -204,7 +205,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThanZero([CanBeNull] double value) 
+        public static void GreaterOrEqualThanZero(double value) 
         {
             if(value >= 0)
                 return;
@@ -219,7 +220,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentGreaterOrEqualThanZero(double value, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(value >= 0)
                 return;
@@ -233,7 +234,7 @@ namespace CheckContracts
         /// Checks that input value is greater or equal than zero
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThanZero([CanBeNull] double value, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentGreaterOrEqualThanZero(double value, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(value >= 0)
                 return;
@@ -717,7 +718,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
         [ContractAnnotation("condition:false=>halt")]
-        public static void Condition([CanBeNull] bool condition, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        public static void Condition(bool condition, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(condition)
                 return;
@@ -732,7 +733,7 @@ namespace CheckContracts
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
         [ContractAnnotation("condition:false=>halt")]
-        public static void Condition([CanBeNull] bool condition) 
+        public static void Condition(bool condition) 
         {
             if(condition)
                 return;
@@ -748,7 +749,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
         [ContractAnnotation("condition:false=>halt")]
-        public static void ArgumentCondition([CanBeNull] bool condition, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentCondition(bool condition, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(condition)
                 return;
@@ -763,7 +764,7 @@ namespace CheckContracts
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
         [ContractAnnotation("condition:false=>halt")]
-        public static void ArgumentCondition([CanBeNull] bool condition, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentCondition(bool condition, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(condition)
                 return;
@@ -840,7 +841,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args ) where TEnum : struct, IConvertible
+        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args ) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -854,7 +855,7 @@ namespace CheckContracts
         /// Checks that enumeration value is defined. Uses Enum.IsDefined function
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration) where TEnum : struct, IConvertible
+        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -869,7 +870,7 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TEnum : struct, IConvertible
+        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -883,7 +884,7 @@ namespace CheckContracts
         /// Checks that enumeration value is defined. Uses Enum.IsDefined function
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEnumerationValueIsDefined<TEnum>([CanBeNull] TEnum enumeration, [InvokerParameterName, NotNull] string argumentName) where TEnum : struct, IConvertible
+        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName) where TEnum : struct, IConvertible
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
