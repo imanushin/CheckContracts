@@ -179,6 +179,18 @@ var checksArray = new []
         ""
         },
 
+    new object[]{
+        "DateIsReal",
+        new [] {"DateTime"},
+        new []{ "inputDate" },
+        "inputDate > MinDate",
+        "Date should be more than {0}. Actual value: {1}",
+        "MinDate, inputDate",
+        "Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it",
+        "",
+        ""
+        },
+
 };
 
 #>

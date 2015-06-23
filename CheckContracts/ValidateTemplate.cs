@@ -893,6 +893,64 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
+        
+        /// <summary>
+        /// Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void DateIsReal(DateTime inputDate, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(inputDate > MinDate)
+                return;
+
+            var message = BuildMessage("Date should be more than {0}. Actual value: {1}", new object[]{ MinDate, inputDate }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it
+        /// </summary>
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void DateIsReal(DateTime inputDate) 
+        {
+            if(inputDate > MinDate)
+                return;
+
+            var message = BuildMessage("Date should be more than {0}. Actual value: {1}", new object[]{ MinDate, inputDate }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentDateIsReal(DateTime inputDate, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(inputDate > MinDate)
+                return;
+
+            var message = BuildMessage("Date should be more than {0}. Actual value: {1}", new object[]{ MinDate, inputDate }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it
+        /// </summary>        
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        public static void ArgumentDateIsReal(DateTime inputDate, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(inputDate > MinDate)
+                return;
+
+            var message = BuildMessage("Date should be more than {0}. Actual value: {1}", new object[]{ MinDate, inputDate }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
                 
     }
 }

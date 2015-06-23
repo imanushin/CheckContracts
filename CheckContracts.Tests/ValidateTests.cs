@@ -16,27 +16,27 @@ namespace CheckContracts.Tests
         {
             const string nullString = null;
 
-            Assert.That(()=>Validate.IsNotNull(nullString), Throws.InvalidOperationException.And.Message.Contains("String"));
-            Assert.That(()=>Validate.ArgumentIsNotNull(nullString, "arg12"), Throws.InstanceOf(typeof(ArgumentNullException)).And.Message.Contains("String").And.Message.Contains("arg12"));
-            Assert.That(()=>Validate.ArgumentIsNotNull("123", "arg12"), Throws.Nothing);
-            Assert.That(()=>Validate.IsNotNull("123"), Throws.Nothing);
+            Assert.That(() => Validate.IsNotNull(nullString), Throws.InvalidOperationException.And.Message.Contains("String"));
+            Assert.That(() => Validate.ArgumentIsNotNull(nullString, "arg12"), Throws.InstanceOf(typeof(ArgumentNullException)).And.Message.Contains("String").And.Message.Contains("arg12"));
+            Assert.That(() => Validate.ArgumentIsNotNull("123", "arg12"), Throws.Nothing);
+            Assert.That(() => Validate.IsNotNull("123"), Throws.Nothing);
         }
 
         [Test]
         public void CollectionIsEmptyTestDraft()
         {
             string[] nullCollection = null;
-            var emptyCollection = new string [] { };
-            var notEmptyCollection = new[] {string.Empty};
+            var emptyCollection = new string[] { };
+            var notEmptyCollection = new[] { string.Empty };
 
             Assert.That(() => Validate.CollectionHasElements(notEmptyCollection), Throws.Nothing);
             Assert.That(() => Validate.ArgumentCollectionHasElements(notEmptyCollection, "123"), Throws.Nothing);
 
-            Assert.That(()=>Validate.CollectionHasElements(nullCollection), 
+            Assert.That(() => Validate.CollectionHasElements(nullCollection),
                 Throws.InvalidOperationException
                 .And.Message.Contains("is null")
                 .And.Message.Contains("String"));
-            Assert.That(()=>Validate.ArgumentCollectionHasElements(nullCollection, "arg1"), 
+            Assert.That(() => Validate.ArgumentCollectionHasElements(nullCollection, "arg1"),
                 Throws.ArgumentException
                 .And.Message.Contains("String")
                 .And.Message.Contains("is null")
@@ -228,7 +228,7 @@ namespace CheckContracts.Tests
                 );
         }
 
-        private static CheckFunctions<TValue> GetEnumerationValueIsDefinedChecks<TValue>() 
+        private static CheckFunctions<TValue> GetEnumerationValueIsDefinedChecks<TValue>()
             where TValue : struct, IConvertible
         {
             return new CheckFunctions<TValue>(
@@ -237,7 +237,7 @@ namespace CheckContracts.Tests
                 Validate.EnumerationValueIsDefined,
                 Validate.ArgumentEnumerationValueIsDefined,
                 Validate.ArgumentEnumerationValueIsDefined,
-                new[] {  typeof(TValue).Name}
+                new[] { typeof(TValue).Name }
                 );
         }
 
@@ -253,12 +253,24 @@ namespace CheckContracts.Tests
                 );
         }
 
+        private static CheckFunctions<DateTime> GetDateIsRealChecks()
+        {
+            return new CheckFunctions<DateTime>(
+                "DateIsReal",
+                Validate.DateIsReal,
+                Validate.DateIsReal,
+                Validate.ArgumentDateIsReal,
+                Validate.ArgumentDateIsReal,
+                new string[] { "1900" }
+                );
+        }
+
         private static ValidationCase[] CreateExceptionalCases()
         {
             var result = new List<ValidationCase>();
 
-            result.AddRange(CreateCorrectCases(new[] {new [] {1}}, new[]{ new int[0], null}, GetCollectionHasElementsChecks<int>()));
-            result.AddRange(CreateCorrectCases(new[] {new [] {string.Empty}}, new []{ new string[0], null}, GetCollectionHasElementsChecks<string>()));
+            result.AddRange(CreateCorrectCases(new[] { new[] { 1 } }, new[] { new int[0], null }, GetCollectionHasElementsChecks<int>()));
+            result.AddRange(CreateCorrectCases(new[] { new[] { string.Empty } }, new[] { new string[0], null }, GetCollectionHasElementsChecks<string>()));
 
             result.AddRange(CreateCorrectCases(new[] { 1 }, new[] { -1, 0 }, GetGreaterThanZeroIntChecks()));
             result.AddRange(CreateCorrectCases(new[] { 1, 0 }, new[] { -1 }, GetGreaterOrEqualThanZeroIntChecks()));
@@ -266,11 +278,11 @@ namespace CheckContracts.Tests
             result.AddRange(CreateCorrectCases(new[] { 1.0 }, new[] { -1.0, +0.0 }, GetGreaterThanZeroDoubleChecks()));
             result.AddRange(CreateCorrectCases(new[] { 1.0, +0.0 }, new[] { -1.0 }, GetGreaterOrEqualThanZeroDoubleChecks()));
 
-            result.AddRange(CreateCorrectCases(new[] {0,1}, new []{ -1 }, GetGreaterOrEqualThanChecks(0)));
-            result.AddRange(CreateCorrectCases(new[] {1}, new []{ -1, 0 }, GetGreaterThanChecks(0)));
-            result.AddRange(CreateCorrectCases(new[] {-1, 0}, new []{ 1 }, GetLessOrEqualThanChecks(0)));
-            result.AddRange(CreateCorrectCases(new[] {-1}, new []{ 1, 0 }, GetLessThanChecks(0)));
-            result.AddRange(CreateCorrectCases(new[] {1,2,3}, new []{ 0, 4 }, GetBetweenChecks(1,3)));
+            result.AddRange(CreateCorrectCases(new[] { 0, 1 }, new[] { -1 }, GetGreaterOrEqualThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] { 1 }, new[] { -1, 0 }, GetGreaterThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] { -1, 0 }, new[] { 1 }, GetLessOrEqualThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] { -1 }, new[] { 1, 0 }, GetLessThanChecks(0)));
+            result.AddRange(CreateCorrectCases(new[] { 1, 2, 3 }, new[] { 0, 4 }, GetBetweenChecks(1, 3)));
 
             result.AddRange(CreateCorrectCases(new[] { 0 }, new[] { 1, -1 }, GetEqualsWithChecks(0)));
             result.AddRange(CreateCorrectCases(new[] { "123" }, new[] { "1", string.Empty, null }, GetEqualsWithChecks("123")));
@@ -286,17 +298,19 @@ namespace CheckContracts.Tests
 
             result.AddRange(CreateCorrectCases(new[] { StringSplitOptions.None, StringSplitOptions.RemoveEmptyEntries }, new StringSplitOptions[] { (StringSplitOptions)128 }, GetEnumerationValueIsDefinedChecks<StringSplitOptions>()));
 
+            result.AddRange(CreateCorrectCases(new[] { DateTime.Now, DateTime.UtcNow, new DateTime(1950, 01, 01), }, new[] { default(DateTime), default(DateTime).AddYears(100) }, GetDateIsRealChecks()));
+
             return result.ToArray();
         }
 
         private static IEnumerable<ValidationCase> CreateCorrectCases<TValue>(
-            IEnumerable<TValue> correctValues, 
-            IEnumerable<TValue> inccorrectValues, 
+            IEnumerable<TValue> correctValues,
+            IEnumerable<TValue> inccorrectValues,
             CheckFunctions<TValue> checkFunction)
         {
             var emptyStringArray = new string[0];
 
-           foreach (var value in correctValues)
+            foreach (var value in correctValues)
             {
                 var name = checkFunction.functionName + " of " + value;
 
@@ -307,7 +321,7 @@ namespace CheckContracts.Tests
             }
 
             var nonFormatRequirements = checkFunction.RequiredSubstrings;
-            var formatterRequirements = nonFormatRequirements.Concat(new[] {"longMessage formatParameter"}).ToArray();
+            var formatterRequirements = nonFormatRequirements.Concat(new[] { "longMessage formatParameter" }).ToArray();
 
             foreach (var value in inccorrectValues)
             {

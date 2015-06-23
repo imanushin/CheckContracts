@@ -15,6 +15,8 @@ namespace CheckContracts
     [DebuggerStepThrough]
     public static partial class Validate
     {
+        private static readonly DateTime MinDate = new DateTime(1900, 01, 01, 00, 00, 00, DateTimeKind.Utc);
+
         /// <summary>
         /// Checks that the target object is not null
         /// </summary>
@@ -34,7 +36,7 @@ namespace CheckContracts
         {
             IsNotNull(targetObject, "The object with type {0} is null", typeof(TInput));
         }
-        
+
         /// <summary>
         /// Checks that input argument is not null (for nullable types)
         /// </summary>
@@ -44,9 +46,9 @@ namespace CheckContracts
         {
             if (argument == null)
                 throw new ArgumentNullException(argumentName,
-                    $"Argument '{argumentName}' with type {typeof (TValue)} is null");
+                    $"Argument '{argumentName}' with type {typeof(TValue)} is null");
         }
-        
+
         private static string BuildMessage(string defaultFormatPerffix, object[] systemArguments, string userFormat, object[] userArguments, string argumentName = null)
         {
             var builder = new StringBuilder();
