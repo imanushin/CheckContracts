@@ -19,7 +19,7 @@ var floatingPointTypes = new[]{"double", "float"};
 var comparableTypes = integerTypes.Concat(floatingPointTypes).Concat(new []{ "DateTime", "TimeSpan" }).ToArray();
 var equalityTypes = comparableTypes.Concat(new[]{ "string" }).ToArray();
 
-var primitiveTypes = new HashSet<string>(comparableTypes.Concat(new[]{"bool", "TEnum"}));
+var primitiveTypes = new HashSet<string>(comparableTypes.Concat(new[]{"bool", "TEnum", "TValueType"}));
 
 var checksArray = new []
 {
@@ -48,62 +48,62 @@ var checksArray = new []
         },
 
     new object[]{
-        "GreaterThan<TValue>",
-        new[] {"TValue"},
+        "GreaterThan<TValueType>",
+        new[] {"TValueType"},
         new []{"value", "minValue"},
         "value.CompareTo(minValue) > 0",
         "Value of type {0} should be greater than {1}. Current value: {2}",
-        "typeof(TValue), value, minValue",
+        "typeof(TValueType), value, minValue",
         "Checks that input value is greater (and not equal with) minValue",
-        "where TValue : struct, IComparable<TValue>",
+        "where TValueType : struct, IComparable<TValueType>",
         ""
         },
 
     new object[]{
-        "GreaterOrEqualThan<TValue>",
-        new[] {"TValue"},
+        "GreaterOrEqualThan<TValueType>",
+        new[] {"TValueType"},
         new []{"value", "minValue"},
         "value.CompareTo(minValue) >= 0",
         "Value of type {0} should be greater or equal than {1}. Current value: {2}",
-        "typeof(TValue), value, minValue",
+        "typeof(TValueType), value, minValue",
         "Checks that input value is greater or equal with minValue",
-        "where TValue : struct, IComparable<TValue>",
+        "where TValueType : struct, IComparable<TValueType>",
         ""
         },
 
     new object[]{
-        "LessThan<TValue>",
-        new[] {"TValue"},
+        "LessThan<TValueType>",
+        new[] {"TValueType"},
         new []{"value", "maxValue"},
         "value.CompareTo(maxValue) < 0",
         "Value of type {0} should be less than {1}. Current value: {2}",
-        "typeof(TValue), value, maxValue",
+        "typeof(TValueType), value, maxValue",
         "Checks that input value is less (and not equal with) maxValue",
-        "where TValue : struct, IComparable<TValue>",
+        "where TValueType : struct, IComparable<TValueType>",
         ""
         },
 
     new object[]{
-        "LessOrEqualThan<TValue>",
-        new[] {"TValue"},
+        "LessOrEqualThan<TValueType>",
+        new[] {"TValueType"},
         new []{"value", "maxValue"},
         "value.CompareTo(maxValue) <= 0",
         "Value of type {0} should be less or equal than {1}. Current value: {2}",
-        "typeof(TValue), value, maxValue",
+        "typeof(TValueType), value, maxValue",
         "Checks that input value is less or equal with maxValue",
-        "where TValue : struct, IComparable<TValue>",
+        "where TValueType : struct, IComparable<TValueType>",
         ""
         },
 
     new object[]{
-        "Between<TValue>",
-        new[] {"TValue"},
+        "Between<TValueType>",
+        new[] {"TValueType"},
         new []{ "value", "minValue", "maxValue" },
         "value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0",
         "Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}",
-        "value.GetType(), value, minValue, maxValue",
+        "typeof(TValueType), value, minValue, maxValue",
         "Checks that input value is between minValue and maxValue (inclusive)",
-        "where TValue : struct, IComparable<TValue>",
+        "where TValueType : struct, IComparable<TValueType>",
         ""
         },
 

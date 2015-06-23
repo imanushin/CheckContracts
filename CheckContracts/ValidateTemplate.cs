@@ -249,12 +249,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void GreaterThan<TValueType>(TValueType value, TValueType minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -263,12 +263,12 @@ namespace CheckContracts
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue) where TValue : struct, IComparable<TValue>
+        public static void GreaterThan<TValueType>(TValueType value, TValueType minValue) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -278,12 +278,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterThan<TValueType>(TValueType value, TValueType minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -292,12 +292,12 @@ namespace CheckContracts
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterThan<TValueType>(TValueType value, TValueType minValue, [InvokerParameterName, NotNull] string argumentName) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -307,12 +307,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void GreaterOrEqualThan<TValueType>(TValueType value, TValueType minValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -321,12 +321,12 @@ namespace CheckContracts
         /// Checks that input value is greater or equal with minValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void GreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue) where TValue : struct, IComparable<TValue>
+        public static void GreaterOrEqualThan<TValueType>(TValueType value, TValueType minValue) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -336,12 +336,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterOrEqualThan<TValueType>(TValueType value, TValueType minValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -350,12 +350,12 @@ namespace CheckContracts
         /// Checks that input value is greater or equal with minValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentGreaterOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentGreaterOrEqualThan<TValueType>(TValueType value, TValueType minValue, [InvokerParameterName, NotNull] string argumentName) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, minValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -365,12 +365,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void LessThan<TValueType>(TValueType value, TValueType maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -379,12 +379,12 @@ namespace CheckContracts
         /// Checks that input value is less (and not equal with) maxValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue) where TValue : struct, IComparable<TValue>
+        public static void LessThan<TValueType>(TValueType value, TValueType maxValue) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -394,12 +394,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessThan<TValueType>(TValueType value, TValueType maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -408,12 +408,12 @@ namespace CheckContracts
         /// Checks that input value is less (and not equal with) maxValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessThan<TValueType>(TValueType value, TValueType maxValue, [InvokerParameterName, NotNull] string argumentName) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -423,12 +423,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void LessOrEqualThan<TValueType>(TValueType value, TValueType maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -437,12 +437,12 @@ namespace CheckContracts
         /// Checks that input value is less or equal with maxValue
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void LessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue) where TValue : struct, IComparable<TValue>
+        public static void LessOrEqualThan<TValueType>(TValueType value, TValueType maxValue) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -452,12 +452,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessOrEqualThan<TValueType>(TValueType value, TValueType maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -466,12 +466,12 @@ namespace CheckContracts
         /// Checks that input value is less or equal with maxValue
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentLessOrEqualThan<TValue>([CanBeNull] TValue value, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentLessOrEqualThan<TValueType>(TValueType value, TValueType maxValue, [InvokerParameterName, NotNull] string argumentName) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValue), value, maxValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -481,12 +481,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Between<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValue : struct, IComparable<TValue>
+        public static void Between<TValueType>(TValueType value, TValueType minValue, TValueType maxValue, [NotNull] string errorFormat, [NotNull] params object[] args ) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -495,12 +495,12 @@ namespace CheckContracts
         /// Checks that input value is between minValue and maxValue (inclusive)
         /// </summary>
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void Between<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue) where TValue : struct, IComparable<TValue>
+        public static void Between<TValueType>(TValueType value, TValueType minValue, TValueType maxValue) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -510,12 +510,12 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentBetween<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValue : struct, IComparable<TValue>
+        public static void ArgumentBetween<TValueType>(TValueType value, TValueType minValue, TValueType maxValue, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -524,12 +524,12 @@ namespace CheckContracts
         /// Checks that input value is between minValue and maxValue (inclusive)
         /// </summary>        
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentBetween<TValue>([CanBeNull] TValue value, [CanBeNull] TValue minValue, [CanBeNull] TValue maxValue, [InvokerParameterName, NotNull] string argumentName) where TValue : struct, IComparable<TValue>
+        public static void ArgumentBetween<TValueType>(TValueType value, TValueType minValue, TValueType maxValue, [InvokerParameterName, NotNull] string argumentName) where TValueType : struct, IComparable<TValueType>
         {
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ value.GetType(), value, minValue, maxValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
