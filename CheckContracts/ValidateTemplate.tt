@@ -32,6 +32,7 @@ var checksArray = new []
         "value.GetType(), value",
         "Checks that input value is greater zero",
         "",
+        "",
         ""
         },
 
@@ -43,6 +44,7 @@ var checksArray = new []
         "Value of type {0} should be greater or equal than zero. Current value: {1}",
         "value.GetType(), value",
         "Checks that input value is greater or equal than zero",
+        "",
         "",
         ""
         },
@@ -56,6 +58,7 @@ var checksArray = new []
         "typeof(TValueType), value, minValue",
         "Checks that input value is greater (and not equal with) minValue",
         "where TValueType : struct, IComparable<TValueType>",
+        "",
         ""
         },
 
@@ -68,6 +71,7 @@ var checksArray = new []
         "typeof(TValueType), value, minValue",
         "Checks that input value is greater or equal with minValue",
         "where TValueType : struct, IComparable<TValueType>",
+        "",
         ""
         },
 
@@ -80,6 +84,7 @@ var checksArray = new []
         "typeof(TValueType), value, maxValue",
         "Checks that input value is less (and not equal with) maxValue",
         "where TValueType : struct, IComparable<TValueType>",
+        "",
         ""
         },
 
@@ -92,6 +97,7 @@ var checksArray = new []
         "typeof(TValueType), value, maxValue",
         "Checks that input value is less or equal with maxValue",
         "where TValueType : struct, IComparable<TValueType>",
+        "",
         ""
         },
 
@@ -104,6 +110,7 @@ var checksArray = new []
         "typeof(TValueType), value, minValue, maxValue",
         "Checks that input value is between minValue and maxValue (inclusive)",
         "where TValueType : struct, IComparable<TValueType>",
+        "",
         ""
         },
 
@@ -115,6 +122,7 @@ var checksArray = new []
         "Value of type {0} should be {1} but was {2}",
         "typeof(TValue), value, expected",
         "Checks that value is equal with expected value",
+        "",
         "",
         ""
         },
@@ -128,6 +136,7 @@ var checksArray = new []
         "typeof(TValue), value",
         "Checks that value is not equal with expected value",
         "",
+        "",
         ""
         },
 
@@ -140,7 +149,8 @@ var checksArray = new []
         "typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : \"not \"",
         "Checks that input collection has elements",
         "",
-        "collection:null=>halt"
+        "[ContractAnnotation(\"collection:null=>halt\")][CollectionAccess(CollectionAccessType.Read)]",
+        ""
         },
 
     new object[]{
@@ -152,7 +162,8 @@ var checksArray = new []
         "",
         "Condition check",
         "",
-        "condition:false=>halt"
+        "[ContractAnnotation(\"condition:null=>halt\")]",
+        ""
         },
 
     new object[]{
@@ -164,7 +175,8 @@ var checksArray = new []
         "inputString ?? \"{null}\"",
         "Checks that input string is not null, is not empty and is not writespace",
         "",
-        "inputString:null=>halt"
+        "[ContractAnnotation(\"inputString:null=>halt\")]",
+        ""
         },
 
     new object[]{
@@ -176,6 +188,7 @@ var checksArray = new []
         "enumeration, typeof(TEnum)",
         "Checks that enumeration value is defined. Uses Enum.IsDefined function",
         "where TEnum : struct, IConvertible",
+        "",
         ""
         },
 
@@ -187,6 +200,7 @@ var checksArray = new []
         "Date should be more than {0}. Actual value: {1}",
         "MinDate, inputDate",
         "Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it",
+        "",
         "",
         ""
         },
@@ -205,7 +219,7 @@ namespace CheckContracts
     {
         foreach(var type in (string[])item[1])
         {
-            var contractAnnotations = string.IsNullOrEmpty((string)item[8]) ? string.Empty : string.Format("[ContractAnnotation(\"{0}\")]{1}        ", item[8], Environment.NewLine);
+            var contractAnnotations = ((string)item[8]) ?? string.Empty;
 
             var canBeNullAttribute = primitiveTypes.Contains(type) ? string.Empty : "[CanBeNull] ";
 
@@ -216,8 +230,9 @@ namespace CheckContracts
         /// <#=item[6]#>
         /// </summary>
         [StringFormatMethod("errorFormat")]
+        [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        <#=contractAnnotations#>public static void <#=item[0]#>(<#=baseArguments#>, [NotNull] string errorFormat, [NotNull] params object[] args ) <#=item[7]#>
+		<#=contractAnnotations#>public static void <#=item[0]#>(<#=baseArguments#>, [NotNull] string errorFormat, [NotNull] params object[] args ) <#=item[7]#>
         {
             if(<#=item[3]#>)
                 return;
@@ -230,6 +245,7 @@ namespace CheckContracts
         /// <summary>
         /// <#=item[6]#>
         /// </summary>
+        [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
         <#=contractAnnotations#>public static void <#=item[0]#>(<#=baseArguments#>) <#=item[7]#>
         {
@@ -245,6 +261,7 @@ namespace CheckContracts
         /// <#=item[6]#>
         /// </summary>
         [StringFormatMethod("errorFormat")]
+        [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
         <#=contractAnnotations#>public static void Argument<#=item[0]#>(<#=baseArguments#>, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) <#=item[7]#>
         {
@@ -259,6 +276,7 @@ namespace CheckContracts
         /// <summary>
         /// <#=item[6]#>
         /// </summary>        
+        [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
         <#=contractAnnotations#>public static void Argument<#=item[0]#>(<#=baseArguments#>, [InvokerParameterName, NotNull] string argumentName) <#=item[7]#>
         {

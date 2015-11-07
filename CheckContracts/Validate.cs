@@ -11,7 +11,7 @@ namespace CheckContracts
     /// <summary>
     /// General validation class
     /// </summary>
-    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
+    [PublicAPI]
     [DebuggerStepThrough]
     public static partial class Validate
     {
@@ -21,8 +21,9 @@ namespace CheckContracts
         /// Checks that the target object is not null
         /// </summary>
         [StringFormatMethod("messageFormat")]
+        [AssertionMethod]
         [ContractAnnotation("targetObject:null => halt")]
-        public static void IsNotNull([CanBeNull] object targetObject, string messageFormat, params object[] args)
+        public static void IsNotNull([CanBeNull, NoEnumeration] object targetObject, [NotNull] string messageFormat, params object[] args)
         {
             Condition(!ReferenceEquals(null, targetObject), messageFormat, args);
         }
@@ -31,7 +32,8 @@ namespace CheckContracts
         /// Checks that <paramref name="targetObject"/> object is not null. Otherwise raises exception with generic type details (it is better than NullReferenceException without the type details).
         /// </summary>
         [ContractAnnotation("targetObject:null => halt")]
-        public static void IsNotNull<TInput>([CanBeNull] TInput targetObject)
+        [AssertionMethod]
+        public static void IsNotNull<TInput>([CanBeNull, NoEnumeration] TInput targetObject)
             where TInput : class
         {
             IsNotNull(targetObject, "The object with type {0} is null", typeof(TInput));
@@ -42,7 +44,8 @@ namespace CheckContracts
         /// </summary>
         [StringFormatMethod("messageFormat")]
         [ContractAnnotation("argument:null => halt")]
-        public static void ArgumentIsNotNull<TValue>([CanBeNull] TValue argument, [InvokerParameterName()] string argumentName)
+        [AssertionMethod]
+        public static void ArgumentIsNotNull<TValue>([CanBeNull, NoEnumeration] TValue argument, [InvokerParameterName, NotNull] string argumentName)
         {
             if (argument == null)
                 throw new ArgumentNullException(argumentName,
