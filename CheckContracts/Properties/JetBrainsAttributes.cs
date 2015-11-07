@@ -7,7 +7,6 @@
 // ReSharper disable IntroduceOptionalParameters.Global
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable InconsistentNaming
-// ReSharper disable CheckNamespace
 
 namespace JetBrains.Annotations
 {
@@ -16,8 +15,9 @@ namespace JetBrains.Annotations
     /// so the check for <c>null</c> is necessary before its usage.
     /// </summary>
     /// <example><code>
-    /// [CanBeNull] public object Test() { return null; }
-    /// public void UseTest() {
+    /// [CanBeNull] object Test() => null;
+    /// 
+    /// void UseTest() {
     ///   var p = Test();
     ///   var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
     /// }
@@ -31,7 +31,7 @@ namespace JetBrains.Annotations
     /// Indicates that the value of the marked element could never be <c>null</c>.
     /// </summary>
     /// <example><code>
-    /// [NotNull] public object Foo() {
+    /// [NotNull] object Foo() {
     ///   return null; // Warning: Possible 'null' assignment
     /// }
     /// </code></example>
@@ -41,7 +41,9 @@ namespace JetBrains.Annotations
     internal sealed class NotNullAttribute : Attribute { }
 
     /// <summary>
-    /// Indicates that collection or enumerable value does not contain null elements.
+    /// Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task
+    /// and Lazy classes to indicate that the value of a collection item, of the Task.Result property
+    /// or of the Lazy.Value property can never be null.
     /// </summary>
     [AttributeUsage(
       AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.Property |
@@ -49,7 +51,9 @@ namespace JetBrains.Annotations
     internal sealed class ItemNotNullAttribute : Attribute { }
 
     /// <summary>
-    /// Indicates that collection or enumerable value can contain null elements.
+    /// Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task
+    /// and Lazy classes to indicate that the value of a collection item, of the Task.Result property
+    /// or of the Lazy.Value property can be null.
     /// </summary>
     [AttributeUsage(
       AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.Property |
@@ -63,8 +67,9 @@ namespace JetBrains.Annotations
     /// </summary>
     /// <example><code>
     /// [StringFormatMethod("message")]
-    /// public void ShowError(string message, params object[] args) { /* do something */ }
-    /// public void Foo() {
+    /// void ShowError(string message, params object[] args) { /* do something */ }
+    /// 
+    /// void Foo() {
     ///   ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
     /// }
     /// </code></example>
@@ -106,7 +111,7 @@ namespace JetBrains.Annotations
     /// the parameter of <see cref="System.ArgumentNullException"/>.
     /// </summary>
     /// <example><code>
-    /// public void Foo(string param) {
+    /// void Foo(string param) {
     ///   if (param == null)
     ///     throw new ArgumentNullException("par"); // Warning: Cannot resolve symbol
     /// }
@@ -132,10 +137,12 @@ namespace JetBrains.Annotations
     /// <example><code>
     /// public class Foo : INotifyPropertyChanged {
     ///   public event PropertyChangedEventHandler PropertyChanged;
+    /// 
     ///   [NotifyPropertyChangedInvocator]
     ///   protected virtual void NotifyChanged(string propertyName) { ... }
     ///
-    ///   private string _name;
+    ///   string _name;
+    /// 
     ///   public string Name {
     ///     get { return _name; }
     ///     set { _name = value; NotifyChanged("LastName"); /* Warning */ }
@@ -227,8 +234,8 @@ namespace JetBrains.Annotations
     /// </summary>
     /// <example><code>
     /// [LocalizationRequiredAttribute(true)]
-    /// public class Foo {
-    ///   private string str = "my string"; // Warning: Localizable string
+    /// class Foo {
+    ///   string str = "my string"; // Warning: Localizable string
     /// }
     /// </code></example>
     [AttributeUsage(AttributeTargets.All)]
@@ -252,8 +259,9 @@ namespace JetBrains.Annotations
     /// <example><code>
     /// [CannotApplyEqualityOperator]
     /// class NoEquality { }
+    /// 
     /// class UsesNoEquality {
-    ///   public void Test() {
+    ///   void Test() {
     ///     var ca1 = new NoEquality();
     ///     var ca2 = new NoEquality();
     ///     if (ca1 != null) { // OK
@@ -271,9 +279,10 @@ namespace JetBrains.Annotations
     /// </summary>
     /// <example><code>
     /// [BaseTypeRequired(typeof(IComponent)] // Specify requirement
-    /// public class ComponentAttribute : Attribute { }
+    /// class ComponentAttribute : Attribute { }
+    /// 
     /// [Component] // ComponentAttribute requires implementing IComponent interface
-    /// public class MyComponent : IComponent { }
+    /// class MyComponent : IComponent { }
     /// </code></example>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     [BaseTypeRequired(typeof(Attribute))]
@@ -409,14 +418,49 @@ namespace JetBrains.Annotations
     /// The same as <c>System.Diagnostics.Contracts.PureAttribute</c>.
     /// </summary>
     /// <example><code>
-    /// [Pure] private int Multiply(int x, int y) { return x * y; }
-    /// public void Foo() {
-    ///   const int a = 2, b = 2;
-    ///   Multiply(a, b); // Waring: Return value of pure method is not used
+    /// [Pure] int Multiply(int x, int y) => x * y;
+    /// 
+    /// void M() {
+    ///   Multiply(123, 42); // Waring: Return value of pure method is not used
     /// }
     /// </code></example>
     [AttributeUsage(AttributeTargets.Method)]
     internal sealed class PureAttribute : Attribute { }
+
+    /// <summary>
+    /// Indicates that the return value of method invocation must be used.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Method)]
+    internal sealed class MustUseReturnValueAttribute : Attribute
+    {
+        public MustUseReturnValueAttribute() { }
+        public MustUseReturnValueAttribute([NotNull] string justification)
+        {
+            Justification = justification;
+        }
+
+        public string Justification { get; private set; }
+    }
+
+    /// <summary>
+    /// Indicates the type member or parameter of some type, that should be used instead of all other ways
+    /// to get the value that type. This annotation is useful when you have some "context" value evaluated
+    /// and stored somewhere, meaning that all other ways to get this value must be consolidated with existing one.
+    /// </summary>
+    /// <example><code>
+    /// class Foo {
+    ///   [ProvidesContext] IBarService _barService = ...;
+    /// 
+    ///   void ProcessNode(INode node) {
+    ///     DoSomething(node, node.GetGlobalServices().Bar);
+    ///     //              ^ Warning: use value of '_barService' field
+    ///   }
+    /// }
+    /// </code></example>
+    [AttributeUsage(
+      AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter |
+      AttributeTargets.Method)]
+    internal sealed class ProvidesContextAttribute : Attribute { }
 
     /// <summary>
     /// Indicates that a parameter is a path to a file or a folder within a web project.
@@ -660,7 +704,7 @@ namespace JetBrains.Annotations
     /// ASP.NET MVC attribute. Allows disabling inspections for MVC views within a class or a method.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    internal sealed class AspMvcSupressViewErrorAttribute : Attribute { }
+    internal sealed class AspMvcSuppressViewErrorAttribute : Attribute { }
 
     /// <summary>
     /// ASP.NET MVC attribute. Indicates that a parameter is an MVC display template.
@@ -688,12 +732,26 @@ namespace JetBrains.Annotations
 
     /// <summary>
     /// ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
-    /// is an MVC view. If applied to a method, the MVC view name is calculated implicitly
+    /// is an MVC view component. If applied to a method, the MVC view name is calculated implicitly
     /// from the context. Use this attribute for custom wrappers similar to
     /// <c>System.Web.Mvc.Controller.View(Object)</c>.
     /// </summary>
     [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Method)]
     internal sealed class AspMvcViewAttribute : Attribute { }
+
+    /// <summary>
+    /// ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+    /// is an MVC view component name.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Parameter)]
+    internal sealed class AspMvcViewComponentAttribute : Attribute { }
+
+    /// <summary>
+    /// ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+    /// is an MVC view component view. If applied to a method, the MVC view component view name is default.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Method)]
+    internal sealed class AspMvcViewComponentViewAttribute : Attribute { }
 
     /// <summary>
     /// ASP.NET MVC attribute. When applied to a parameter of an attribute,
@@ -742,9 +800,10 @@ namespace JetBrains.Annotations
     internal sealed class RazorSectionAttribute : Attribute { }
 
     /// <summary>
-    /// Indicates how method invocation affects content of the collection.
+    /// Indicates how method, constructor invocation or property access
+    /// over collection type affects content of the collection.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Property)]
     internal sealed class CollectionAccessAttribute : Attribute
     {
         public CollectionAccessAttribute(CollectionAccessType collectionAccessType)
@@ -844,7 +903,7 @@ namespace JetBrains.Annotations
     internal sealed class XamlItemsControlAttribute : Attribute { }
 
     /// <summary>
-    /// XAML attibute. Indicates the property of some <c>BindingBase</c>-derived type, that
+    /// XAML attribute. Indicates the property of some <c>BindingBase</c>-derived type, that
     /// is used to bind some item of <c>ItemsControl</c>-derived type. This annotation will
     /// enable the <c>DataContext</c> type resolve for XAML bindings for such properties.
     /// </summary>
