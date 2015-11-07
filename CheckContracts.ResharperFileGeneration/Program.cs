@@ -21,7 +21,7 @@ namespace CheckContracts.ResharperFileGeneration
             WriteData().Wait();
         }
 
-        private async static Task WriteData()
+        private static async Task WriteData()
         {
             var assembly = typeof(Validate).Assembly;
             var fileInfo = new FileInfo($"{assembly.GetName().Name}.ExternalAnnotations.xml");
@@ -44,7 +44,7 @@ namespace CheckContracts.ResharperFileGeneration
                     await xmlWriter.WriteStartDocumentAsync();
 
                     await xmlWriter.WriteStartElementAsync(null, "assembly", null);
-                    await xmlWriter.WriteAttributeStringAsync(null, "name", null, string.Format("{0}, Version={1}", assembly.GetName().Name, assembly.GetName().Version));
+                    await xmlWriter.WriteAttributeStringAsync(null, "name", null, $"{assembly.GetName().Name}, Version={assembly.GetName().Version}");
 
                     foreach (var type in assembly.GetTypes().Where(t => t.IsPublic && !typeof(Attribute).IsAssignableFrom(t) && !t.IsEnum))
                     {
