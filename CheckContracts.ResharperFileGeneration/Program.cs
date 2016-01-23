@@ -50,7 +50,8 @@ namespace CheckContracts.ResharperFileGeneration
                     {
                         foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public))
                         {
-                            var name = string.Format("M:{0}.{1}({2})", type.FullName, method.Name, string.Join(", ", method.GetParameters().Select(p => p.ParameterType.FullName)));
+                            var name =
+                                $"M:{type.FullName}.{method.Name}({string.Join(", ", method.GetParameters().Select(p => p.ParameterType.FullName))})";
 
                             await xmlWriter.WriteStartElementAsync(null, "member", null);
 

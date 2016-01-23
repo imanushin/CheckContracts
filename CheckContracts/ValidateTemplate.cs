@@ -271,7 +271,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be greater than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -286,7 +286,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be greater than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -302,7 +302,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -317,7 +317,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) > 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -333,7 +333,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -348,7 +348,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -364,7 +364,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -379,7 +379,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be greater or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, minValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be greater or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, minValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -395,7 +395,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be less than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -410,7 +410,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be less than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -426,7 +426,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be less than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -441,7 +441,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) < 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be less than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -457,7 +457,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be less or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -472,7 +472,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be less or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -488,7 +488,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be less or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -503,7 +503,7 @@ namespace CheckContracts
             if(value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be less or equal than {1}. Current value: {2}", new object[]{ typeof(TValueType), value, maxValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be less or equal than {2}. Current value: {1}", new object[]{ typeof(TValueType), value, maxValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -519,7 +519,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be between {2} and {3} (inclusive). Current value: {1}", new object[]{ typeof(TValueType), value, minValue, maxValue }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -534,7 +534,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, null, null);
+            var message = BuildMessage("Value of type {0} should be between {2} and {3} (inclusive). Current value: {1}", new object[]{ typeof(TValueType), value, minValue, maxValue }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -550,7 +550,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be between {2} and {3} (inclusive). Current value: {1}", new object[]{ typeof(TValueType), value, minValue, maxValue }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -565,7 +565,7 @@ namespace CheckContracts
             if(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0)
                 return;
 
-            var message = BuildMessage("Value of type {0} should be between {1} and {2} (inclusive). Current value: {3}", new object[]{ typeof(TValueType), value, minValue, maxValue }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be between {2} and {3} (inclusive). Current value: {1}", new object[]{ typeof(TValueType), value, minValue, maxValue }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -581,7 +581,7 @@ namespace CheckContracts
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
 
-            var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should be {2} but was {1}", new object[]{ typeof(TValue), value, expected }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -596,7 +596,7 @@ namespace CheckContracts
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
 
-            var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, null, null);
+            var message = BuildMessage("Value of type {0} should be {2} but was {1}", new object[]{ typeof(TValue), value, expected }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -612,7 +612,7 @@ namespace CheckContracts
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
 
-            var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should be {2} but was {1}", new object[]{ typeof(TValue), value, expected }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -627,7 +627,7 @@ namespace CheckContracts
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
 
-            var message = BuildMessage("Value of type {0} should be {1} but was {2}", new object[]{ typeof(TValue), value, expected }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should be {2} but was {1}", new object[]{ typeof(TValue), value, expected }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -643,7 +643,7 @@ namespace CheckContracts
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
 
-            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, errorFormat, args);
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), expected }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -658,7 +658,7 @@ namespace CheckContracts
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
 
-            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, null, null);
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), expected }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -674,7 +674,7 @@ namespace CheckContracts
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
 
-            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, errorFormat, args, argumentName);
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), expected }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -689,7 +689,7 @@ namespace CheckContracts
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
 
-            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), value }, null, null, argumentName);
+            var message = BuildMessage("Value of type {0} should not be {1} they are equal", new object[]{ typeof(TValue), expected }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
