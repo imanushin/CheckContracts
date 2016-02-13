@@ -11,7 +11,7 @@ namespace CheckContracts
 {
     partial class Validate
     {
-
+#if (true)
         /// <summary>
         /// Checks that input value is greater zero
         /// </summary>
@@ -73,7 +73,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is greater zero
         /// </summary>
@@ -135,7 +136,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is greater or equal than zero
         /// </summary>
@@ -197,7 +199,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is greater or equal than zero
         /// </summary>
@@ -259,7 +262,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is greater (and not equal with) minValue
         /// </summary>
@@ -321,7 +325,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is greater or equal with minValue
         /// </summary>
@@ -383,7 +388,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is less (and not equal with) maxValue
         /// </summary>
@@ -445,7 +451,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is less or equal with maxValue
         /// </summary>
@@ -507,7 +514,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input value is between minValue and maxValue (inclusive)
         /// </summary>
@@ -569,7 +577,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that value is equal with expected value
         /// </summary>
@@ -631,7 +640,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that value is not equal with expected value
         /// </summary>
@@ -693,16 +703,80 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input collection has elements
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void EnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
+                return;
+
+            var message = BuildMessage("Enumerable with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input collection has elements
+        /// </summary>
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void EnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection) 
+        {
+            if(!ReferenceEquals(null, collection) && collection.Any())
+                return;
+
+            var message = BuildMessage("Enumerable with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks that input collection has elements
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentEnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(!ReferenceEquals(null, collection) && collection.Any())
+                return;
+
+            var message = BuildMessage("Enumerable with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks that input collection has elements
+        /// </summary>        
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentEnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(!ReferenceEquals(null, collection) && collection.Any())
+                return;
+
+            var message = BuildMessage("Enumerable with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+#endif
+        #if (ReadonlyCollectionDefined)
+        /// <summary>
+        /// Checks that input collection has elements
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, errorFormat, args);
@@ -715,9 +789,9 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection) 
         {
-            if(!ReferenceEquals(null, collection) && collection.Any())
+            if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, null, null);
@@ -731,9 +805,9 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
-            if(!ReferenceEquals(null, collection) && collection.Any())
+            if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, errorFormat, args, argumentName);
@@ -746,16 +820,17 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
         {
-            if(!ReferenceEquals(null, collection) && collection.Any())
+            if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Condition check
         /// </summary>
@@ -817,7 +892,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input string is not null, is not empty and is not writespace
         /// </summary>
@@ -879,14 +955,15 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that enumeration value is defined. Uses Enum.IsDefined function
         /// </summary>
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args ) where TEnum : struct, IConvertible
+		public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration, [NotNull] string errorFormat, [NotNull] params object[] args ) where TEnum : struct
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -901,7 +978,7 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration) where TEnum : struct, IConvertible
+        public static void EnumerationValueIsDefined<TEnum>(TEnum enumeration) where TEnum : struct
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -917,7 +994,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TEnum : struct, IConvertible
+        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) where TEnum : struct
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -932,7 +1009,7 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName) where TEnum : struct, IConvertible
+        public static void ArgumentEnumerationValueIsDefined<TEnum>(TEnum enumeration, [InvokerParameterName, NotNull] string argumentName) where TEnum : struct
         {
             if(Enum.IsDefined(typeof(TEnum), enumeration))
                 return;
@@ -941,7 +1018,8 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
-        
+#endif
+        #if (true)
         /// <summary>
         /// Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it
         /// </summary>
@@ -1003,6 +1081,7 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
+#endif
                 
     }
 }

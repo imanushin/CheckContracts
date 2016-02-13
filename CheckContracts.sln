@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContracts", "CheckContracts\CheckContracts.csproj", "{8C41D5E7-7229-49C0-8B2D-B05B0C113CE5}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContracts.ResharperFileGeneration", "CheckContracts.ResharperFileGeneration\CheckContracts.ResharperFileGeneration.csproj", "{C709A212-695E-4214-8227-F64F1F82BE9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContractsNet46", "CheckContractsNet46\CheckContractsNet46.csproj", "{1B25E41E-B836-4B60-A42A-2E0F794591F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContractsNet45", "CheckContractsNet45\CheckContractsNet45.csproj", "{DD2B6FBA-CC54-4C94-9232-BE511BB057FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1B25E41E-B836-4B60-A42A-2E0F794591F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B25E41E-B836-4B60-A42A-2E0F794591F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B25E41E-B836-4B60-A42A-2E0F794591F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2B6FBA-CC54-4C94-9232-BE511BB057FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2B6FBA-CC54-4C94-9232-BE511BB057FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2B6FBA-CC54-4C94-9232-BE511BB057FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2B6FBA-CC54-4C94-9232-BE511BB057FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

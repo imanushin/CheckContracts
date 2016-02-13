@@ -29,24 +29,24 @@ namespace CheckContracts.Tests
             var emptyCollection = new string[] { };
             var notEmptyCollection = new[] { string.Empty };
 
-            Assert.That(() => Validate.CollectionHasElements(notEmptyCollection), Throws.Nothing);
-            Assert.That(() => Validate.ArgumentCollectionHasElements(notEmptyCollection, "123"), Throws.Nothing);
+            Assert.That(() => Validate.EnumerableHasElements(notEmptyCollection), Throws.Nothing);
+            Assert.That(() => Validate.ArgumentEnumerableHasElements(notEmptyCollection, "123"), Throws.Nothing);
 
-            Assert.That(() => Validate.CollectionHasElements(nullCollection),
+            Assert.That(() => Validate.EnumerableHasElements(nullCollection),
                 Throws.InvalidOperationException
                 .And.Message.Contains("is null")
                 .And.Message.Contains("String"));
-            Assert.That(() => Validate.ArgumentCollectionHasElements(nullCollection, "arg1"),
+            Assert.That(() => Validate.ArgumentEnumerableHasElements(nullCollection, "arg1"),
                 Throws.ArgumentException
                 .And.Message.Contains("String")
                 .And.Message.Contains("is null")
                 .And.Message.Contains("arg1"));
 
-            Assert.That(() => Validate.CollectionHasElements(emptyCollection),
+            Assert.That(() => Validate.EnumerableHasElements(emptyCollection),
                 Throws.InvalidOperationException
                 .And.Message.Contains("is not null")
                .And.Message.Contains("String"));
-            Assert.That(() => Validate.ArgumentCollectionHasElements(emptyCollection, "arg1"),
+            Assert.That(() => Validate.ArgumentEnumerableHasElements(emptyCollection, "arg1"),
                 Throws.ArgumentException
                 .And.Message.Contains("String")
                 .And.Message.Contains("is not null")
@@ -76,10 +76,10 @@ namespace CheckContracts.Tests
         {
             return new CheckFunctions<IEnumerable<TValue>>(
                 "CollectionHasElements",
-                Validate.CollectionHasElements,
-                Validate.CollectionHasElements,
-                Validate.ArgumentCollectionHasElements,
-                Validate.ArgumentCollectionHasElements,
+                Validate.EnumerableHasElements,
+                Validate.EnumerableHasElements,
+                Validate.ArgumentEnumerableHasElements,
+                Validate.ArgumentEnumerableHasElements,
                 new[] { typeof(TValue).Name }
                 );
         }

@@ -33,7 +33,8 @@ var checksArray = new []
         "Checks that input value is greater zero",
         "",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -46,7 +47,8 @@ var checksArray = new []
         "Checks that input value is greater or equal than zero",
         "",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -59,7 +61,8 @@ var checksArray = new []
         "Checks that input value is greater (and not equal with) minValue",
         "where TValueType : struct, IComparable<TValueType>",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -72,7 +75,8 @@ var checksArray = new []
         "Checks that input value is greater or equal with minValue",
         "where TValueType : struct, IComparable<TValueType>",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -85,7 +89,8 @@ var checksArray = new []
         "Checks that input value is less (and not equal with) maxValue",
         "where TValueType : struct, IComparable<TValueType>",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -98,7 +103,8 @@ var checksArray = new []
         "Checks that input value is less or equal with maxValue",
         "where TValueType : struct, IComparable<TValueType>",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -111,7 +117,8 @@ var checksArray = new []
         "Checks that input value is between minValue and maxValue (inclusive)",
         "where TValueType : struct, IComparable<TValueType>",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -124,7 +131,8 @@ var checksArray = new []
         "Checks that value is equal with expected value",
         "",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -137,20 +145,36 @@ var checksArray = new []
         "Checks that value is not equal with expected value",
         "",
         "",
-        ""
+        "",
+		""
+        },
+
+    new object[]{
+        "EnumerableHasElements<TValue>",
+        new [] {"IEnumerable<TValue>"},
+        new []{ "collection" },
+        "!ReferenceEquals(null, collection) && collection.Any()",
+        "Enumerable with elements of type {0} should not be empty. Collection is {1}null",
+        "typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : \"not \"",
+        "Checks that input collection has elements",
+        "",
+        "[ContractAnnotation(\"collection:null=>halt\")][CollectionAccess(CollectionAccessType.Read)]",
+        "",
+		""
         },
 
     new object[]{
         "CollectionHasElements<TValue>",
-        new [] {"IEnumerable<TValue>"},
+        new [] {"IReadOnlyCollection<TValue>"},
         new []{ "collection" },
-        "!ReferenceEquals(null, collection) && collection.Any()",
+        "!ReferenceEquals(null, collection) && collection.Count > 0",
         "Collection with elements of type {0} should not be empty. Collection is {1}null",
         "typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : \"not \"",
         "Checks that input collection has elements",
         "",
         "[ContractAnnotation(\"collection:null=>halt\")][CollectionAccess(CollectionAccessType.Read)]",
-        ""
+        "",
+		"ReadonlyCollectionDefined"
         },
 
     new object[]{
@@ -163,7 +187,8 @@ var checksArray = new []
         "Condition check",
         "",
         "[ContractAnnotation(\"condition:null=>halt\")]",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -176,7 +201,8 @@ var checksArray = new []
         "Checks that input string is not null, is not empty and is not writespace",
         "",
         "[ContractAnnotation(\"inputString:null=>halt\")]",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -187,9 +213,10 @@ var checksArray = new []
         "Enumeration value {0} is not defined for type {1}",
         "enumeration, typeof(TEnum)",
         "Checks that enumeration value is defined. Uses Enum.IsDefined function",
-        "where TEnum : struct, IConvertible",
+        "where TEnum : struct",
         "",
-        ""
+        "",
+		""
         },
 
     new object[]{
@@ -202,7 +229,8 @@ var checksArray = new []
         "Checks that input date has year more than 1900. This check is useful to avoid default(DateTime) value (with year 0001) and the same dates near it",
         "",
         "",
-        ""
+        "",
+		""
         },
 
 };
@@ -224,8 +252,14 @@ namespace CheckContracts
             var canBeNullAttribute = primitiveTypes.Contains(type) ? string.Empty : "[CanBeNull] ";
 
             var baseArguments = string.Join(", ", ((string[])item[2]).Select(i=>string.Format("{0}{1} {2}", canBeNullAttribute, type, i ) ) );
-        #>
+			var compileTimeCheck = (string)item[10];
 
+			if(string.IsNullOrEmpty(compileTimeCheck))
+			{
+				compileTimeCheck = "true";
+			}
+        #>
+#if (<#=compileTimeCheck#>)
         /// <summary>
         /// <#=item[6]#>
         /// </summary>
@@ -287,6 +321,7 @@ namespace CheckContracts
 
             throw new ArgumentException(message);
         }
+#endif
         <#
         }
     }
