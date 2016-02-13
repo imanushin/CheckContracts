@@ -7,17 +7,19 @@ namespace CheckContracts.Tests
     public sealed class SafeCastTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void CastNullArgumentTest()
         {
-            SafeCast.CastArgument<string>(null, "arg");
+            var action = new TestDelegate(() => SafeCast.CastArgument<string>(null, "arg"));
+
+            Assert.That(action, Throws.InstanceOf<ArgumentNullException>());
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void CastInvalidArgumentTest()
         {
-            SafeCast.CastArgument<string>(new object(), "arg");
+            var action = new TestDelegate(() => SafeCast.CastArgument<string>(new object(), "arg"));
+
+            Assert.That(action, Throws.ArgumentException);
         }
 
         [Test]
@@ -31,17 +33,19 @@ namespace CheckContracts.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void CastNullValueTest()
         {
-            SafeCast.Cast<string>(null, "text {0}", "text");
+            var action = new TestDelegate(() => SafeCast.Cast<string>(null, "text {0}", "text"));
+
+            Assert.That(action, Throws.InvalidOperationException);
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void CastInvalidValueTest()
         {
-            SafeCast.Cast<string>(new object(), "text {0}", "text");
+            var action = new TestDelegate(() => SafeCast.Cast<string>(new object(), "text {0}", "text"));
+
+            Assert.That(action, Throws.InvalidOperationException);
         }
 
         [Test]
