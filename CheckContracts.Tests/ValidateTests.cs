@@ -11,7 +11,9 @@ namespace CheckContracts.Tests
     [ExcludeFromCodeCoverage]
     internal sealed class ValidateTests
     {
-        private static readonly ValidationCase[] Cases = CreateExceptionalCases();
+        private static int _index = 0;
+
+        private static readonly TestCaseData[] Cases = CreateExceptionalCases().Select(vc => new TestCaseData(vc).SetName(vc.CaseName)).ToArray();
 
         [Test]
         public void IsNotNullTests()
@@ -74,7 +76,7 @@ namespace CheckContracts.Tests
             return validationCase.exceptionSubstrings.Aggregate(result, (current, line) => current.And.Message.Contains(line));
         }
 
-        private static CheckFunctions<IEnumerable<TValue>> GetCollectionHasElementsChecks<TValue>()
+        private static CheckFunctions<IEnumerable<TValue>> GetEnumerableHasElementsChecks<TValue>()
         {
             return new CheckFunctions<IEnumerable<TValue>>(
                 "CollectionHasElements",
@@ -82,6 +84,18 @@ namespace CheckContracts.Tests
                 Validate.EnumerableHasElements,
                 Validate.ArgumentEnumerableHasElements,
                 Validate.ArgumentEnumerableHasElements,
+                new[] { typeof(TValue).Name }
+                );
+        }
+
+        private static CheckFunctions<IReadOnlyCollection<TValue>> GetCollectionHasElementsChecks<TValue>()
+        {
+            return new CheckFunctions<IReadOnlyCollection<TValue>>(
+                "CollectionHasElements",
+                Validate.CollectionHasElements,
+                Validate.CollectionHasElements,
+                Validate.ArgumentCollectionHasElements,
+                Validate.ArgumentCollectionHasElements,
                 new[] { typeof(TValue).Name }
                 );
         }
@@ -282,6 +296,9 @@ namespace CheckContracts.Tests
         {
             var result = new List<ValidationCase>();
 
+            result.AddRange(CreateCorrectCases(new[] { new[] { 1 } }, new[] { new int[0], null }, GetEnumerableHasElementsChecks<int>()));
+            result.AddRange(CreateCorrectCases(new[] { new[] { string.Empty } }, new[] { new string[0], null }, GetEnumerableHasElementsChecks<string>()));
+
             result.AddRange(CreateCorrectCases(new[] { new[] { 1 } }, new[] { new int[0], null }, GetCollectionHasElementsChecks<int>()));
             result.AddRange(CreateCorrectCases(new[] { new[] { string.Empty } }, new[] { new string[0], null }, GetCollectionHasElementsChecks<string>()));
 
@@ -312,7 +329,7 @@ namespace CheckContracts.Tests
 
             result.AddRange(CreateCorrectCases(new[] { StringSplitOptions.None, StringSplitOptions.RemoveEmptyEntries }, new StringSplitOptions[] { (StringSplitOptions)128 }, GetEnumerationValueIsDefinedChecks<StringSplitOptions>()));
 
-            result.AddRange(CreateCorrectCases(new[] { DateTime.Now, DateTime.UtcNow, new DateTime(1950, 01, 01), }, new[] { default(DateTime), default(DateTime).AddYears(100) }, GetDateIsRealChecks()));
+            result.AddRange(CreateCorrectCases(new[] { DateTime.Now, DateTime.UtcNow, new DateTime(1950, 01, 01), }, new[] { default(DateTime), default(DateTime).AddYears(100), DateTime.MaxValue }, GetDateIsRealChecks()));
 
             return result.ToArray();
         }
@@ -328,10 +345,10 @@ namespace CheckContracts.Tests
             {
                 var name = checkFunction.functionName + " of " + value;
 
-                yield return new ValidationCase(() => checkFunction.StateCheck(value), false, null, null, name);
-                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "123 {0}", new object[] { "1" }), false, null, null, name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, "arg1"), false, null, null, name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, "arg1", "123 {0}", new object[] { "1" }), false, null, null, name);
+                yield return new ValidationCase(() => checkFunction.StateCheck(value), false, null, null, name + _index++);
+                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "123 {0}", new object[] { "1" }), false, null, null, name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, "arg1"), false, null, null, name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, "arg1", "123 {0}", new object[] { "1" }), false, null, null, name + _index++);
             }
 
             var nonFormatRequirements = checkFunction.RequiredSubstrings;
@@ -341,17 +358,17 @@ namespace CheckContracts.Tests
             {
                 var name = checkFunction.functionName + " of " + value;
 
-                yield return new ValidationCase(() => checkFunction.StateCheck(value), true, nonFormatRequirements, typeof(InvalidOperationException), name);
-                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "longMessage {0}", new object[] { "formatParameter" }), true, formatterRequirements, typeof(InvalidOperationException), name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, "arg1"), true, nonFormatRequirements, typeof(ArgumentException), name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, "arg1", "longMessage {0}", new object[] { "formatParameter" }), true, formatterRequirements, typeof(ArgumentException), name);
+                yield return new ValidationCase(() => checkFunction.StateCheck(value), true, nonFormatRequirements, typeof(InvalidOperationException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "longMessage {0}", new object[] { "formatParameter" }), true, formatterRequirements, typeof(InvalidOperationException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, "arg1"), true, nonFormatRequirements, typeof(ArgumentException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, "arg1", "longMessage {0}", new object[] { "formatParameter" }), true, formatterRequirements, typeof(ArgumentException), name + _index++);
 
                 // invalid input parameters
-                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "longMessage {0}", new object[] { "formatParameter", "formatParameter2" }), true, emptyStringArray, typeof(InvalidOperationException), name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, null), true, emptyStringArray, typeof(ArgumentException), name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, string.Empty), true, emptyStringArray, typeof(ArgumentException), name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, null, "longMessage {0}", new object[] { "formatParameter" }), true, emptyStringArray, typeof(ArgumentException), name);
-                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, string.Empty, "longMessage {0}", new object[] { "formatParameter" }), true, emptyStringArray, typeof(ArgumentException), name);
+                yield return new ValidationCase(() => checkFunction.StateCheckFormat(value, "longMessage {0}", new object[] { "formatParameter", "formatParameter2" }), true, emptyStringArray, typeof(InvalidOperationException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, null), true, emptyStringArray, typeof(ArgumentException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheck(value, string.Empty), true, emptyStringArray, typeof(ArgumentException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, null, "longMessage {0}", new object[] { "formatParameter" }), true, emptyStringArray, typeof(ArgumentException), name + _index++);
+                yield return new ValidationCase(() => checkFunction.ArgumentCheckFormat(value, string.Empty, "longMessage {0}", new object[] { "formatParameter" }), true, emptyStringArray, typeof(ArgumentException), name + _index++);
             }
         }
 
@@ -383,7 +400,7 @@ namespace CheckContracts.Tests
                 this.shouldRaiseError = shouldRaiseError;
                 this.exceptionSubstrings = exceptionSubstrings;
                 ExceptionType = exceptionType;
-                CaseName = caseName;
+                CaseName = caseName.Replace(':', '_').Replace(' ', '_').Replace('.', '_');
             }
 
             public readonly string CaseName;

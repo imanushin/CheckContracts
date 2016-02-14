@@ -16,6 +16,7 @@ namespace CheckContracts
     public static partial class Validate
     {
         private static readonly DateTime MinDate = new DateTime(1900, 01, 01, 00, 00, 00, DateTimeKind.Utc);
+        private static readonly DateTime MaxDate = new DateTime(2100, 01, 01, 00, 00, 00, DateTimeKind.Utc);
 
         /// <summary>
         /// Checks that the target object is not null
