@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContractsNet40", "CheckContractsNet40\CheckContractsNet40.csproj", "{507B718B-D364-4F55-BDD4-64C564AC5F6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckContractsPortableNet40", "CheckContractsPortableNet40\CheckContractsPortableNet40.csproj", "{AAD3F004-06BE-48D5-985B-BFCFFA3254D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{507B718B-D364-4F55-BDD4-64C564AC5F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{507B718B-D364-4F55-BDD4-64C564AC5F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{507B718B-D364-4F55-BDD4-64C564AC5F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD3F004-06BE-48D5-985B-BFCFFA3254D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD3F004-06BE-48D5-985B-BFCFFA3254D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD3F004-06BE-48D5-985B-BFCFFA3254D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD3F004-06BE-48D5-985B-BFCFFA3254D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

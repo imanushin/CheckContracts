@@ -3,15 +3,15 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -1580,15 +1580,15 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -3247,15 +3247,15 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -4886,15 +4886,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -6558,15 +6558,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -8197,15 +8197,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -9869,15 +9869,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "CheckContracts/1.5.0-prerelease": {
+      "CheckContracts/1.5.2-prerelease": {
         "frameworkAssemblies": [
           "System"
         ],
         "compile": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll": {}
+          "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.0.0": {
@@ -11509,8 +11509,8 @@
     }
   },
   "libraries": {
-    "CheckContracts/1.5.0-prerelease": {
-      "sha512": "+cxaIwMpsJ724hQO/+f7VARgG5gNVGjyrhc5eIZdIJDoIawXopgiUQzbeYXr4KluP7NB6NZ8w2oF5CUJ0NB8jQ==",
+    "CheckContracts/1.5.2-prerelease": {
+      "sha512": "ygHHAfMXWqbO757+eQ4IaU7i72S4kqqJlMD3HP9I0tjSr1AVRnML+MVA/2scKwDkUJ7lsf0tDHZhkuSoDcMbQw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -11524,11 +11524,15 @@
         "lib/net46/CheckContracts.ExternalAnnotations.xml",
         "lib/net46/CheckContracts.pdb",
         "lib/net46/CheckContracts.XML",
-        "lib/portable-net45+sl4+wp7+win8/CheckContracts.dll",
-        "lib/portable-net45+sl4+wp7+win8/CheckContracts.ExternalAnnotations.xml",
-        "lib/portable-net45+sl4+wp7+win8/CheckContracts.pdb",
-        "lib/portable-net45+sl4+wp7+win8/CheckContracts.XML",
-        "package/services/metadata/core-properties/01d34d09e49a471491796c4936b05800.psmdcp"
+        "lib/portable40-net40+sl5/CheckContracts.dll",
+        "lib/portable40-net40+sl5/CheckContracts.pdb",
+        "lib/portable40-net40+sl5/CheckContracts.XML",
+        "lib/portable-net45+win8+wpa81+wp8/CheckContracts.dll",
+        "lib/portable-net45+win8+wpa81+wp8/CheckContracts.ExternalAnnotations.xml",
+        "lib/portable-net45+win8+wpa81+wp8/CheckContracts.pdb",
+        "lib/portable-net45+win8+wpa81+wp8/CheckContracts.XML",
+        "package/services/metadata/core-properties/fc538ce6db6c45538a62f84e6300531e.psmdcp",
+        "portable40-net40+sl5+win8+wp8+wpa81/CheckContracts.ExternalAnnotations.xml"
       ]
     },
     "Microsoft.ApplicationInsights/1.0.0": {
@@ -14932,7 +14936,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "CheckContracts >= 1.5.0-prerelease",
+      "CheckContracts >= 1.5.2-prerelease",
       "Microsoft.ApplicationInsights >= 1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",

@@ -1,0 +1,18 @@
+﻿{
+  "dependencies": {
+    "CheckContracts": "1.5.2-prerelease"
+  },
+  "frameworks": {
+    ".NETPortable,Version=v4.5,Profile=Profile259": {
+      "compilationOptions": {
+        "define": [
+          "Portable"
+        ]
+      },
+      "dependencies": {
+        "Newtonsoft.Json": "8.0.2",
+        "Microsoft.Net.Http": "2.2.29"
+      }
+    }
+  }
+}

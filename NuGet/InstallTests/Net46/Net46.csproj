@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CheckContracts, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CheckContracts.1.5.0-prerelease\lib\net46\CheckContracts.dll</HintPath>
+    <Reference Include="CheckContracts, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CheckContracts.1.5.2-prerelease\lib\net46\CheckContracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
