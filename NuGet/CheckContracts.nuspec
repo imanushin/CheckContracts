@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package>
   <metadata>
     <id>CheckContracts</id>
     <version>1.5.0.0</version>
@@ -17,26 +17,24 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <group targetFramework="net40">
-      <file src="..\CheckContractsNet40\bin\Release\CheckContracts.dll" />
-      <file src="..\CheckContractsNet40\bin\Release\CheckContracts.xml" />
-      <file src="..\CheckContractsNet40\bin\Release\CheckContracts.pdb" />
-      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" />
-    </group>
 
-    <group targetFramework="portable-net45+sl4+wp7+win8">
-      <file src="..\CheckContractsNet45\bin\Release\CheckContracts.dll" />
-      <file src="..\CheckContractsNet45\bin\Release\CheckContracts.xml" />
-      <file src="..\CheckContractsNet45\bin\Release\CheckContracts.pdb" />
-      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" />
-    </group>
+    <!--.Net 4.0-->
+    <file src="..\CheckContractsNet40\bin\Release\CheckContracts.dll" target="lib\net40" />
+    <file src="..\CheckContractsNet40\bin\Release\CheckContracts.xml" target="lib\net40" />
+    <file src="..\CheckContractsNet40\bin\Release\CheckContracts.pdb" target="lib\net40" />
+    <file src="..\binary\CheckContracts.ExternalAnnotations.xml" target="lib\net40" />
 
-    <group targetFramework="net46">
-      <file src="..\CheckContractsNet46\bin\Release\CheckContracts.dll" />
-      <file src="..\CheckContractsNet46\bin\Release\CheckContracts.xml" />
-      <file src="..\CheckContractsNet46\bin\Release\CheckContracts.pdb" />
-      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" />
-    </group>
+    <!--.Net 4.5, Windows Phone-->
+    <file src="..\CheckContractsNet45\bin\Release\CheckContracts.dll" target="lib\portable-net45+sl4+wp7+win8" />
+    <file src="..\CheckContractsNet45\bin\Release\CheckContracts.xml" target="lib\portable-net45+sl4+wp7+win8"  />
+    <file src="..\CheckContractsNet45\bin\Release\CheckContracts.pdb" target="lib\portable-net45+sl4+wp7+win8"  />
+    <file src="..\binary\CheckContracts.ExternalAnnotations.xml" target="lib\portable-net45+sl4+wp7+win8"  />
+
+    <!--.Net 4.6-->
+    <file src="..\CheckContractsNet46\bin\Release\CheckContracts.dll" target="lib\net46" />
+    <file src="..\CheckContractsNet46\bin\Release\CheckContracts.xml"  target="lib\net46"/>
+    <file src="..\CheckContractsNet46\bin\Release\CheckContracts.pdb" target="lib\net46" />
+    <file src="..\binary\CheckContracts.ExternalAnnotations.xml" target="lib\net46" />
 
   </files>
 </package>

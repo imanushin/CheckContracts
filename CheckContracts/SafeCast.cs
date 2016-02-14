@@ -12,11 +12,12 @@ namespace CheckContracts
     public static class SafeCast
     {
         /// <summary>
-        /// Cast input value to the target type. It can be useful during implementing WPF <typeparamref name="IValueConverter"/> interface.
-        /// Method raises ArgumentNullException in case of null argument.
+        /// Cast input value to the target type. It can be useful during implementing WPF IValueConverter interface.
+        /// <exception cref="ArgumentNullException">For null arguments</exception>
         /// </summary>
         [ContractAnnotation("input:null => halt")]
-        public static TResult CastArgument<TResult>(object input, [InvokerParameterName] string argumentName)
+        [NotNull]
+        public static TResult CastArgument<TResult>([NotNull] object input, [InvokerParameterName, NotNull] string argumentName)
             where TResult : class
         {
             Validate.ArgumentIsNotNull(input, argumentName);
@@ -35,11 +36,12 @@ namespace CheckContracts
         }
 
         /// <summary>
-        /// Cast input value to the target type. It can be useful during implementing WPF <typeparamref name="IValueConverter"/> interface.
+        /// Cast input value to the target type. It can be useful during implementing WPF IValueConverter interface.
         /// Method raises InvalidOperationException in case of <paramref name="input"/>.
         /// </summary>
         [ContractAnnotation("input:null => halt")]
         [StringFormatMethod("messageFormat")]
+        [NotNull]
         public static TResult Cast<TResult>([NotNull] object input, string messageFormat, params object[] arguments)
             where TResult : class
         {
