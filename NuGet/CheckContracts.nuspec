@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CheckContracts</id>
-    <version>1.5.0.0</version>
+    <version>1.5.0-prerelease</version>
     <authors>Igor Manushin</authors>
     <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
     <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>
