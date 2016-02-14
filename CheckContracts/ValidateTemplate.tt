@@ -182,7 +182,7 @@ var checksArray = new []
         new [] {"TValue"},
         new []{ "value", "[NotNull]IReadOnlyCollection<TValue> allowedItems" },
         "!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value)",
-        "Item {0} (type - '{1}') should be one of the following: '{1}'.",
+        "Item {0} (type - '{1}') should be one of the following: '{2}'.",
         "value, typeof(TValue), ReferenceEquals(null, allowedItems) ? \"null\" : string.Join(\", \", allowedItems)", 
         "Checks, that collection contains the target value",
         "",

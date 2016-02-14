@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
@@ -7,6 +8,7 @@ using NUnit.Framework.Constraints;
 namespace CheckContracts.Tests
 {
     [TestFixture]
+    [ExcludeFromCodeCoverage]
     internal sealed class ValidateTests
     {
         private static readonly ValidationCase[] Cases = CreateExceptionalCases();
@@ -144,6 +146,17 @@ namespace CheckContracts.Tests
                 );
         }
 
+        private static CheckFunctions<TValue> GetIsInChecks<TValue>(IReadOnlyCollection<TValue> allowedItems)
+        {
+            return new CheckFunctions<TValue>(
+                "IsIn",
+                (v) => Validate.IsIn(v, allowedItems),
+                (v, msg, args) => Validate.IsIn(v, allowedItems, msg, args),
+                (v, param) => Validate.ArgumentIsIn(v, allowedItems, param),
+                (v, param, msg, args) => Validate.ArgumentIsIn(v, allowedItems, param, msg, args),
+                allowedItems.Select(i => i.ToString()).Concat(new[] { typeof(TValue).Name }).ToArray()
+                );
+        }
         private static CheckFunctions<TValue> GetEqualsWithChecks<TValue>(TValue comparer)
         {
             return new CheckFunctions<TValue>(
@@ -283,6 +296,7 @@ namespace CheckContracts.Tests
             result.AddRange(CreateCorrectCases(new[] { -1, 0 }, new[] { 1 }, GetLessOrEqualThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] { -1 }, new[] { 1, 0 }, GetLessThanChecks(0)));
             result.AddRange(CreateCorrectCases(new[] { 1, 2, 3 }, new[] { 0, 4 }, GetBetweenChecks(1, 3)));
+            result.AddRange(CreateCorrectCases(new[] { 1, 2, 3 }, new[] { 0, 4 }, GetIsInChecks(new[] { 1, 2, 3 })));
 
             result.AddRange(CreateCorrectCases(new[] { 0 }, new[] { 1, -1 }, GetEqualsWithChecks(0)));
             result.AddRange(CreateCorrectCases(new[] { "123" }, new[] { "1", string.Empty, null }, GetEqualsWithChecks("123")));

@@ -842,7 +842,7 @@ namespace CheckContracts
             if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
                 return;
 
-            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, errorFormat, args);
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{2}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, errorFormat, args);
 
             throw new InvalidOperationException(message);
         }
@@ -857,7 +857,7 @@ namespace CheckContracts
             if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
                 return;
 
-            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, null, null);
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{2}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, null, null);
 
             throw new InvalidOperationException(message);
         }
@@ -873,7 +873,7 @@ namespace CheckContracts
             if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
                 return;
 
-            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, errorFormat, args, argumentName);
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{2}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, errorFormat, args, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -888,7 +888,7 @@ namespace CheckContracts
             if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
                 return;
 
-            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, null, null, argumentName);
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{2}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 
 namespace CheckContracts.Tests
 {
     [TestFixture]
+    [ExcludeFromCodeCoverage]
     public sealed class SafeCastTests
     {
         [Test]
