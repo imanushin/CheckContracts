@@ -9,7 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Library to simplify runtime checking by using code contracts.</description>
     <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
-    <releaseNotes>Message fix for GreaterThan/LessThan.</releaseNotes>
+    <releaseNotes>Support for .Net 4.6 features, add new checks</releaseNotes>
     <language>en-US</language>
     <tags>CheckContracts Validate Validation Checking Contracts CodeContracts TypeCasting SafeTypeCasting ReSharper PCL PortableClassLibrary RuntimeChecking JetBrains.Annotations JetBrains Annotations EqualityCheck SafeCast SafeCasting GreaterThan LessThan</tags>
     <frameworkAssemblies>
@@ -18,11 +18,25 @@
   </metadata>
   <files>
     <group targetFramework="net40">
-      <file src="..\binary\CheckContracts.dll" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.dll" />
-      <file src="..\binary\CheckContracts.xml" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.xml" />
-      <file src="..\binary\CheckContracts.pdb" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.pdb" />
-      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.ExternalAnnotations.xml" />
+      <file src="..\CheckContractsNet40\bin\Release\CheckContracts.dll" />
+      <file src="..\CheckContractsNet40\bin\Release\CheckContracts.xml" />
+      <file src="..\CheckContractsNet40\bin\Release\CheckContracts.pdb" />
+      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" />
     </group>
-    
+
+    <group targetFramework="portable-net45+sl4+wp7+win8">
+      <file src="..\CheckContractsNet45\bin\Release\CheckContracts.dll" />
+      <file src="..\CheckContractsNet45\bin\Release\CheckContracts.xml" />
+      <file src="..\CheckContractsNet45\bin\Release\CheckContracts.pdb" />
+      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" />
+    </group>
+
+    <group targetFramework="net46">
+      <file src="..\CheckContractsNet46\bin\Release\CheckContracts.dll" />
+      <file src="..\CheckContractsNet46\bin\Release\CheckContracts.xml" />
+      <file src="..\CheckContractsNet46\bin\Release\CheckContracts.pdb" />
+      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" />
+    </group>
+
   </files>
 </package>
