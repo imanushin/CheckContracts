@@ -176,6 +176,20 @@ var checksArray = new []
         "",
 		"ReadonlyCollectionDefined"
         },
+		
+    new object[]{
+        "IsIn<TValue>",
+        new [] {"TValue"},
+        new []{ "value", "[NotNull]IReadOnlyCollection<TValue> allowedItems" },
+        "!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value)",
+        "Item {0} (type - '{1}') should be one of the following: '{1}'.",
+        "value, typeof(TValue), ReferenceEquals(null, allowedItems) ? \"null\" : string.Join(\", \", allowedItems)", 
+        "Checks, that collection contains the target value",
+        "",
+        "[ContractAnnotation(\"allowedItems:null=>halt\")][ContractAnnotation(\"value:null=>halt\")][CollectionAccess(CollectionAccessType.Read)]",
+        "",
+		"ReadonlyCollectionDefined"
+        },
 
     new object[]{
         "Condition",
@@ -248,10 +262,22 @@ namespace CheckContracts
         foreach(var type in (string[])item[1])
         {
             var contractAnnotations = ((string)item[8]) ?? string.Empty;
-
-            var canBeNullAttribute = primitiveTypes.Contains(type) ? string.Empty : "[CanBeNull] ";
-
-            var baseArguments = string.Join(", ", ((string[])item[2]).Select(i=>string.Format("{0}{1} {2}", canBeNullAttribute, type, i ) ) );
+			
+            var baseArguments = string.Join(", ", ((string[])item[2])
+				.Select(i => i.Split(new char[]{' '}, StringSplitOptions.RemoveEmptyEntries))
+				.Select(lines => new 
+					{
+						Name = lines.Last(),
+						Type = lines.Length > 1 ? lines[0] : type,
+						Lines = lines
+					})
+				.Select(i=> new 
+					{
+						Name = i.Name,
+						Type = i.Type,						
+						CanBeNullAttribute = i.Lines.Length > 1 || primitiveTypes.Contains(i.Type) ? string.Empty : "[CanBeNull]"
+					})
+				.Select(i => string.Format("{0}{1} {2}", i.CanBeNullAttribute, i.Type, i.Name ) ) );
 			var compileTimeCheck = (string)item[10];
 
 			if(string.IsNullOrEmpty(compileTimeCheck))

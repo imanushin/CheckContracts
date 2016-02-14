@@ -42,7 +42,7 @@ namespace CheckContracts
         [ContractAnnotation("input:null => halt")]
         [StringFormatMethod("messageFormat")]
         [NotNull]
-        public static TResult Cast<TResult>([NotNull] object input, string messageFormat, params object[] arguments)
+        public static TResult Cast<TResult>([NotNull] object input, [NotNull] string messageFormat, [NotNull] params object[] arguments)
             where TResult : class
         {
             Validate.IsNotNull(input, messageFormat, arguments);

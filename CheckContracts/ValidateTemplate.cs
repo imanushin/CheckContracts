@@ -585,7 +585,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		public static void EqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+		public static void EqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -600,7 +600,7 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void EqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected) 
+        public static void EqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -616,7 +616,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentEqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -631,7 +631,7 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentEqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(ReferenceEquals(value, expected) || (!ReferenceEquals(expected, null) && expected.Equals(value)) || (!ReferenceEquals(value, null) && value.Equals(expected)))
                 return;
@@ -648,7 +648,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		public static void NotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+		public static void NotEqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -663,7 +663,7 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void NotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected) 
+        public static void NotEqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -679,7 +679,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentNotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        public static void ArgumentNotEqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -694,7 +694,7 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        public static void ArgumentNotEqualsWith<TValue>([CanBeNull] TValue value, [CanBeNull] TValue expected, [InvokerParameterName, NotNull] string argumentName) 
+        public static void ArgumentNotEqualsWith<TValue>([CanBeNull]TValue value, [CanBeNull]TValue expected, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!ReferenceEquals(value, expected) && ((!ReferenceEquals(value, null) && !value.Equals(expected)) || (!ReferenceEquals(expected, null) && !expected.Equals(value))))
                 return;
@@ -711,7 +711,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void EnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void EnumerableHasElements<TValue>([CanBeNull]IEnumerable<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -726,7 +726,7 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void EnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void EnumerableHasElements<TValue>([CanBeNull]IEnumerable<TValue> collection) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -742,7 +742,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentEnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentEnumerableHasElements<TValue>([CanBeNull]IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -757,7 +757,7 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentEnumerableHasElements<TValue>([CanBeNull] IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentEnumerableHasElements<TValue>([CanBeNull]IEnumerable<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!ReferenceEquals(null, collection) && collection.Any())
                 return;
@@ -774,7 +774,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+		[ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull]IReadOnlyCollection<TValue> collection, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
@@ -789,7 +789,7 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void CollectionHasElements<TValue>([CanBeNull]IReadOnlyCollection<TValue> collection) 
         {
             if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
@@ -805,7 +805,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull]IReadOnlyCollection<TValue> collection, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
@@ -820,12 +820,75 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull] IReadOnlyCollection<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("collection:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentCollectionHasElements<TValue>([CanBeNull]IReadOnlyCollection<TValue> collection, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!ReferenceEquals(null, collection) && collection.Count > 0)
                 return;
 
             var message = BuildMessage("Collection with elements of type {0} should not be empty. Collection is {1}null", new object[]{ typeof(TValue), ReferenceEquals(null, collection) ? string.Empty : "not " }, null, null, argumentName);
+
+            throw new ArgumentException(message);
+        }
+#endif
+        #if (ReadonlyCollectionDefined)
+        /// <summary>
+        /// Checks, that collection contains the target value
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+		[ContractAnnotation("allowedItems:null=>halt")][ContractAnnotation("value:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void IsIn<TValue>([CanBeNull]TValue value, [NotNull]IReadOnlyCollection<TValue> allowedItems, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+        {
+            if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
+                return;
+
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, errorFormat, args);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks, that collection contains the target value
+        /// </summary>
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        [ContractAnnotation("allowedItems:null=>halt")][ContractAnnotation("value:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void IsIn<TValue>([CanBeNull]TValue value, [NotNull]IReadOnlyCollection<TValue> allowedItems) 
+        {
+            if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
+                return;
+
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, null, null);
+
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Checks, that collection contains the target value
+        /// </summary>
+        [StringFormatMethod("errorFormat")]
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        [ContractAnnotation("allowedItems:null=>halt")][ContractAnnotation("value:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentIsIn<TValue>([CanBeNull]TValue value, [NotNull]IReadOnlyCollection<TValue> allowedItems, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        {
+            if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
+                return;
+
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, errorFormat, args, argumentName);
+
+            throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Checks, that collection contains the target value
+        /// </summary>        
+        [AssertionMethod]
+        [GeneratedCode("T4 Code Generator", "1.0")]
+        [ContractAnnotation("allowedItems:null=>halt")][ContractAnnotation("value:null=>halt")][CollectionAccess(CollectionAccessType.Read)]public static void ArgumentIsIn<TValue>([CanBeNull]TValue value, [NotNull]IReadOnlyCollection<TValue> allowedItems, [InvokerParameterName, NotNull] string argumentName) 
+        {
+            if(!ReferenceEquals(null, allowedItems) && allowedItems.Contains(value))
+                return;
+
+            var message = BuildMessage("Item {0} (type - '{1}') should be one of the following: '{1}'.", new object[]{ value, typeof(TValue), ReferenceEquals(null, allowedItems) ? "null" : string.Join(", ", allowedItems) }, null, null, argumentName);
 
             throw new ArgumentException(message);
         }
@@ -900,7 +963,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-		[ContractAnnotation("inputString:null=>halt")]public static void StringIsMeanful([CanBeNull] string inputString, [NotNull] string errorFormat, [NotNull] params object[] args ) 
+		[ContractAnnotation("inputString:null=>halt")]public static void StringIsMeanful([CanBeNull]string inputString, [NotNull] string errorFormat, [NotNull] params object[] args ) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -915,7 +978,7 @@ namespace CheckContracts
         /// </summary>
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("inputString:null=>halt")]public static void StringIsMeanful([CanBeNull] string inputString) 
+        [ContractAnnotation("inputString:null=>halt")]public static void StringIsMeanful([CanBeNull]string inputString) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -931,7 +994,7 @@ namespace CheckContracts
         [StringFormatMethod("errorFormat")]
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("inputString:null=>halt")]public static void ArgumentStringIsMeanful([CanBeNull] string inputString, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
+        [ContractAnnotation("inputString:null=>halt")]public static void ArgumentStringIsMeanful([CanBeNull]string inputString, [InvokerParameterName, NotNull] string argumentName, [NotNull] string errorFormat, [NotNull] params object[] args) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
@@ -946,7 +1009,7 @@ namespace CheckContracts
         /// </summary>        
         [AssertionMethod]
         [GeneratedCode("T4 Code Generator", "1.0")]
-        [ContractAnnotation("inputString:null=>halt")]public static void ArgumentStringIsMeanful([CanBeNull] string inputString, [InvokerParameterName, NotNull] string argumentName) 
+        [ContractAnnotation("inputString:null=>halt")]public static void ArgumentStringIsMeanful([CanBeNull]string inputString, [InvokerParameterName, NotNull] string argumentName) 
         {
             if(!string.IsNullOrWhiteSpace(inputString))
                 return;
