@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata>
-        <id>CheckContracts</id>
-        <version>1.4.4.0</version>
-        <authors>Igor Manushin</authors>
-        <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
-        <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Library to simplify runtime checking by using code contracts.</description>
-        <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
-        <releaseNotes>Message fix for GreaterThan/LessThan.</releaseNotes>
-        <language>en-US</language>
-        <tags>CheckContracts Validate Validation Checking Contracts CodeContracts TypeCasting SafeTypeCasting ReSharper PCL PortableClassLibrary RuntimeChecking JetBrains.Annotations JetBrains Annotations EqualityCheck SafeCast SafeCasting GreaterThan LessThan</tags>
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System" targetFramework="" />
-        </frameworkAssemblies>
-    </metadata>
-    <files>
-        <file src="..\binary\CheckContracts.dll" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.dll" />
-        <file src="..\binary\CheckContracts.xml" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.xml" />
-        <file src="..\binary\CheckContracts.pdb" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.pdb" />
-        <file src="..\binary\CheckContracts.ExternalAnnotations.xml" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.ExternalAnnotations.xml" />
-    </files>
+  <metadata>
+    <id>CheckContracts</id>
+    <version>1.5.0.0</version>
+    <authors>Igor Manushin</authors>
+    <licenseUrl>https://github.com/imanushin/CheckContracts/blob/master/license.txt</licenseUrl>
+    <projectUrl>https://github.com/imanushin/CheckContracts</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library to simplify runtime checking by using code contracts.</description>
+    <summary>Library to simplify runtime checking by using code contracts. Instead of default .Net implementation, these contracts does not require any post instrumentation. Add namespace CheckContracts.Properties to the ReSharper annotation list to add ability of code checking during development</summary>
+    <releaseNotes>Message fix for GreaterThan/LessThan.</releaseNotes>
+    <language>en-US</language>
+    <tags>CheckContracts Validate Validation Checking Contracts CodeContracts TypeCasting SafeTypeCasting ReSharper PCL PortableClassLibrary RuntimeChecking JetBrains.Annotations JetBrains Annotations EqualityCheck SafeCast SafeCasting GreaterThan LessThan</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <group targetFramework="net40">
+      <file src="..\binary\CheckContracts.dll" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.dll" />
+      <file src="..\binary\CheckContracts.xml" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.xml" />
+      <file src="..\binary\CheckContracts.pdb" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.pdb" />
+      <file src="..\binary\CheckContracts.ExternalAnnotations.xml" target="lib\portable-net4+sl4+wp7+win8\CheckContracts.ExternalAnnotations.xml" />
+    </group>
+    
+  </files>
 </package>
